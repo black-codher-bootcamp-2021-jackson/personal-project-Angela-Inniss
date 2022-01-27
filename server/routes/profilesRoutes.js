@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
-const Profile = mongoose.model("profiles");
+const Profile = mongoose.model("salons");
+
 
 const profileRoutes = (app) => {
+  // this one is being called in the profilService in the client gets all profiles
   app.get(`/api/profile`, async (req, res) => {
     const profiles = await Profile.find();
+    console.log(profiles);
 
     return res.status(200).send(profiles);
   });

@@ -7,4 +7,4 @@ const profileSchema = new Schema({
   location: String,
 });
 
-mongoose.model("profiles", profileSchema);
+mongoose.model("salons", profileSchema);
