@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Profile = mongoose.model("salons");
+const Salon = mongoose.model("salons");
 
 
 const profileRoutes = (app) => {
