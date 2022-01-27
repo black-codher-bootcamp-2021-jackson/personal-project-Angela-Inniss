@@ -3,7 +3,9 @@
 import axios from "axios";
 
 const getAllProfiles = async () => {
+  console.log("in request")
   const response = await axios.get(`/api/profile`);
+  console.log(response);
 
   return response.data || [];
 };

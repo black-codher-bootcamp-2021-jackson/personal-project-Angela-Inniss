@@ -7,6 +7,7 @@ function App() {
   const [profiles, setProfiles] = useState(null);
 
   useEffect(() => {
+    console.log("hi")
     async function getProfiles() {
       if (!profiles) {
         const response = await getAllProfiles();
