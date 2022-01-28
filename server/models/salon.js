@@ -9,6 +9,14 @@ const { Schema } = mongoose;
 
 // mongoose.model("salons", profileSchema);
 
+
+const serviceSchema = new Schema({
+  service: {
+    type: String,
+    required: false
+  }
+})
+
 const salonSchema = new Schema({
   name: {
     type: String,
@@ -22,5 +30,19 @@ const salonSchema = new Schema({
     type: String,
     required: true
   },
+  services: {
+    type: [String],
+    required: false
+  },
+  social: {
+    type: [String],
+    required: false
+  }
+  // priceRange: {
+  //   type: Number,
+  //   required: true
+  // }
 })
-mongoose.model("salons", salonSchema)
+mongoose.model("salons", salonSchema);
+// services - weave, crotchet, braids, natural
+// want to add a price point or range  

@@ -1,42 +1,60 @@
 import React, { useState, useEffect } from "react";
+import facebook from "./icons/facebookIcon";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllProfiles } from "./services/profileService";
+import { getAllSalons } from "./services/salonService";
 
 function App() {
-  const [profiles, setProfiles] = useState(null);
+  const [salons, setSalons] = useState(null);
 
   useEffect(() => {
     console.log("hi")
-    async function getProfiles() {
-      if (!profiles) {
-        const response = await getAllProfiles();
-        setProfiles(response);
+    async function getSalons() {
+      if (!salons) {
+        const response = await getAllSalons();
+        setSalons(response);
       }
     }
 
-    getProfiles();
-  }, [profiles]);
+    getSalons();
+  }, [salons]);
 
-  const renderProfile = (user) => {
+  const renderSalon = (salon) => {
     return (
-      <li key={user._id}>
+      <li key={salon._id}>
         <h3>
-          {`${user.first_name} 
-          ${user.last_name}`}
+          {`${salon.name} 
+          ${salon.location}`}
         </h3>
-        <p>{user.location}</p>
-      </li>
+        <p>{salon.description}</p>
+
+        <p>{salon.services.map((service => <p>{service}</p>))}</p>
+
+        <p>{salon.socials.map((social) => {
+          console.log(social)
+          const { facebook, instagram, twitter } = social
+          if (social.facebook) {
+            return <p> <a href={facebook}>facebook</a></p>
+          }
+          if (social.instagram) {
+            return <p><a href={instagram}>Instagram</a></p>
+          }
+          if (social.twitter) {
+            return <p><a href={twitter}>twitter</a></p>
+          }
+        })}</p>
+
+      </li >
     );
   };
 
   return (
     <div>
       <ul>
-        {profiles && profiles.length > 0 ? (
-          profiles.map((profile) => renderProfile(profile))
+        {salons && salons.length > 0 ? (
+          salons.map((salon) => renderSalon(salon))
         ) : (
-          <p>No profiles found</p>
+          <p>No salons found</p>
         )}
       </ul>
     </div>
