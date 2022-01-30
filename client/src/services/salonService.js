@@ -8,12 +8,8 @@ const getAllSalons = async () => {
 };
 
 const getSalonsByLocation = async (location) => {
-
   const userLocation = location
-  console.log(userLocation); // manchester
-
-  const response = await axios.get(`/api/salons`, { userLocation });
-  console.log({ userLocation })
+  const response = await axios.get(`/api/salons/filter`, { params: userLocation });
   console.log(response)
   return response.data || [];
 }

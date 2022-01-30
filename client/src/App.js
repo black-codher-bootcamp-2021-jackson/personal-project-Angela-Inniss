@@ -7,7 +7,7 @@ import { getAllSalons, getSalonsByLocation } from "./services/salonService";
 function App() {
   const [salons, setSalons] = useState(null);
 
-  // getSalonsByLocation({ location: "Manchester" });
+  // getSalonsByLocation({ location: "Birmingham" });
 
   useEffect(() => {
     console.log("hi")
