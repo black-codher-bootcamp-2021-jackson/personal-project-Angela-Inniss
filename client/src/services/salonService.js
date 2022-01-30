@@ -7,5 +7,12 @@ const getAllSalons = async () => {
   return response.data || [];
 };
 
+const getSalonsByLocation = async (location) => {
+  const userLocation = location
+  const response = await axios.get(`/api/salons/filter`, { params: userLocation });
+  console.log(response)
+  return response.data || [];
+}
+
 // All of the endpoints in this file can be exported below
-export { getAllSalons };
+export { getAllSalons, getSalonsByLocation };
