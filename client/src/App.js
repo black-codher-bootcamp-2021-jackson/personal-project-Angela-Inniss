@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import facebook from "./icons/facebookIcon";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllSalons } from "./services/salonService";
+import { getAllSalons, getSalonsByLocation } from "./services/salonService";
 
 function App() {
   const [salons, setSalons] = useState(null);
+
+  // getSalonsByLocation({ location: "Manchester" });
 
   useEffect(() => {
     console.log("hi")
