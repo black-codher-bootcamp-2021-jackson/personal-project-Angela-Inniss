@@ -32,7 +32,6 @@ function App() {
         setLocations(locations);
 
         // set services data from API
-
         response.map((salon) => {
           const { services } = salon;
           console.log(services)
@@ -47,7 +46,6 @@ function App() {
 
           setServices(servicesObject)
         })
-
       }
     }
     getSalons();
@@ -104,3 +102,8 @@ function App() {
 }
 
 export default App;
+
+// pages needed on app, 
+// 1. home page local host 3000 / - will show front cover with static content and button to go to search (App.js) or component called home
+// 2. search page links from home /search will show map and search bars and salon cards with info
+// 3. landing pages for inspo  / weaves-inspo / braids-inspo / natural=inspo / relaxed-inspo
