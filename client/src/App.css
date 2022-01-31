@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,14 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.filters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.locations-dropdown,
+.services-dropdown {
+  flex: 1;
 }

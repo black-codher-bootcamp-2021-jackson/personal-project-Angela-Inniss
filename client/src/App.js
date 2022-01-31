@@ -1,31 +1,58 @@
 import React, { useState, useEffect } from "react";
-import facebook from "./icons/facebookIcon";
-import selectDropDownFilter from "./components/selectDropdown";
-// import Select from 'react-select'
-import Select, { components } from "react-select";
-// Add this in your component file
+import SelectDropDownFilter from "../src/components/SelectDropdown/SelectDropdown";
+import "../../client/src/App.css";
+
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllSalons, getSalonsByLocation } from "./services/salonService";
 
-
 function App() {
   const [salons, setSalons] = useState(null);
+  const [locationsList, setLocations] = useState([]);
+  const [servicesList, setServices] = useState([]);
 
   // getSalonsByLocation({ location: "Birmingham" });
 
   useEffect(() => {
-    console.log("hi")
     async function getSalons() {
       if (!salons) {
         const response = await getAllSalons();
+
+        // set salon data 
         setSalons(response);
+
+        // set location data for drop down 
+        let locations = response.map((salon) => {
+          const { location } = salon;
+          return {
+            value: location.toLowerCase(),
+            label: location
+          }
+        })
+        setLocations(locations);
+
+        // set services data from API
+
+        response.map((salon) => {
+          const { services } = salon;
+          console.log(services)
+          const servicesObject = services.map((service) => {
+            console.log(service)
+            return {
+              value: service,
+              label: service
+            }
+          })
+          console.log(servicesObject);
+
+          setServices(servicesObject)
+        })
+
       }
     }
     getSalons();
   }, [salons]);
 
-  // <Select options={options} />
   const renderSalon = (salon) => {
     return (
       <>
@@ -39,7 +66,7 @@ function App() {
           <p>{salon.services.map((service => <p>{service}</p>))}</p>
 
           <p>{salon.socials.map((social) => {
-            console.log(social)
+            // console.log(social)
             const { facebook, instagram, twitter } = social
             if (social.facebook) {
               return <p> <a href={facebook}>facebook</a></p>
@@ -56,16 +83,14 @@ function App() {
       </>
     );
   };
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-  ]
 
   return (
-    <>
+    <div>
+      <div className="filters-container">
+        <SelectDropDownFilter placeholder="Choose Location..." options={locationsList} className="locations-dropdown" />
+        <SelectDropDownFilter placeholder="Choose Services" isMulti options={servicesList} className="services-dropdown" />
+      </div>
       <div>
-        <Select options={options} />
         <ul>
           {salons && salons.length > 0 ? (
             salons.map((salon) => renderSalon(salon))
@@ -74,7 +99,7 @@ function App() {
           )}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
