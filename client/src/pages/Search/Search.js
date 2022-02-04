@@ -13,6 +13,7 @@ const Search = () => {
     const [locationsList, setLocations] = useState([]);
     const [servicesList, setServices] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState("");
+    const [selectedServices, setSelectedServices] = useState("");
 
 
     // console.log(selectedLocation);
@@ -55,23 +56,48 @@ const Search = () => {
         getSalons();
     }, [salons]);
 
-
+    // send data to same function on submis or add data 
 
     const filterSalonByLocation = async (location) => {
+        console.log(location)
         const response = await getSalonsByLocation({ location: location }); // needs to be called asyncronosly
         setSalons(response);
     }
 
     // function fires when user selects a location
     const setAndFilterLocation = (event) => {
-        const location = event.label
-
+        const location = event.value
         setSelectedLocation(location);
-
         filterSalonByLocation(location)
+    }
+
+
+    // async request as it's fetching data from DB 
+    const filterByService = async (services) => {
+        // console.log(services) //["wigs","weave"]
+        // const servicesFilterd = services.map((service) => {
+        //     return {
+        //         services: service // {services: "wigs"} , {services: "weave"}
+        //     }
+        // })
+
+        // console.log(servicesFilterd)
+        const response = await getSalonsByLocation(services);
+        setSalons(response);
 
     }
 
+    // db.inventory.find( { tags: "red" } )
+    const setAndFilterServices = (event) => {
+        console.log(event); // event is an array 
+        const services = event.map((service) => {
+            return service.value
+        })
+        console.log(services)
+        setSelectedServices(services);
+
+        filterByService(services)
+    }
     return (
         <div>
             <div className="filters-container">
@@ -82,9 +108,9 @@ const Search = () => {
                     onChange={(event) => setAndFilterLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
                 />
                 <SelectDropDownFilter placeholder="Choose Services"
-                    isMulti
+                    isMulti={true}
                     options={servicesList}
-                    className="services-dropdown" />
+                    className="services-dropdown" onChange={(event) => setAndFilterServices(event)} />
             </div>
             <div>
                 <ul>

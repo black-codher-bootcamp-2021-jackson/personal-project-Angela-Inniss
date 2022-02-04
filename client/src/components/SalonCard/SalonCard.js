@@ -3,7 +3,7 @@ import React from "react";
 import "../SalonCard/salonCard.css";
 
 
-const services = ["weave", "wigs", "natural", "braids"];
+// const services = ["weave", "wigs", "natural", "braids"];
 const socials = [
     { facebook: "www.facebook.com/snippers" },
     { instagram: "www.instagram.com/snippers" },
@@ -31,7 +31,7 @@ const SalonCard = (props) => {
                 }
             })}</p>
             <p className="salon-description">{props.description}</p>
-            <p>{services.map((service => <p>{service}</p>))}</p>
+            <p>{props.services.map((service => <p>{service}</p>))}</p>
         </div>
     )
 }
