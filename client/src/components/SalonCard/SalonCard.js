@@ -2,6 +2,9 @@
 import React from "react";
 import "../SalonCard/salonCard.css";
 
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+
+
 
 // const services = ["weave", "wigs", "natural", "braids"];
 const socials = [
@@ -15,24 +18,40 @@ const SalonCard = (props) => {
 
     return (
         <div className="card-container">
-            <img />
+            <img alt="image of a salon" className="salon-image" width="100%" height="50%" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGFpciUyMHNhbG9ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
             <h2 className="salon-name">{props.name}</h2>
             <h3 className="salon-location">{props.location}</h3>
 
-            <p>{socials.map((social) => {
+            <p className="socials">{socials.map((social, index) => {
                 if (social.facebook) {
-                    return <p> <a href={props.socialicon}>facebook</a></p>
+                    return (
+                        <>
+                            <a key={index} href={props.facebookLink}><FaFacebook /></a>
+                        </>
+                    )
                 }
                 if (social.instagram) {
-                    return <p><a href={props.socialicon}>Instagram</a></p>
+
+                    return (
+                        <>
+                            {/* <a href={props.socialicon}>Instagram</a> */}
+                            <a href={props.instagramLink}><FaInstagram /></a>
+
+                        </>)
                 }
                 if (social.twitter) {
-                    return <p><a href={props.socialicon}>twitter</a></p>
+                    return (
+                        <>
+                            {/* <a href={props.socialicon}>twitter</a> */}
+                            <a href={props.twitterLink}><FaTwitter /></a>
+
+                        </>)
                 }
             })}</p>
             <p className="salon-description">{props.description}</p>
-            <p>{props.services.map((service => <p>{service}</p>))}</p>
-        </div>
+            <div className="services">{props.services.map((service =>
+                <div>{service}</div>))}</div>
+        </div >
     )
 }
 export default SalonCard;

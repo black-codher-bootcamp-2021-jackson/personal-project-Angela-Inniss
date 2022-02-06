@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Search from "./pages/Search/Search";
 import Home from "./pages/Home/Home";
 import Curly from "./pages/Landing/Curly";
