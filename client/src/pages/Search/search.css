@@ -14,11 +14,7 @@ img {
 
 .subheading {
   padding: 0px 10%;
-}
-
-.locations-dropdown,
-.services-dropdown {
-  flex: 1;
+  margin-top: 50px;
 }
 
 .filters-container {
@@ -31,10 +27,12 @@ img {
   width: 100%;
   padding: 20px 0px;
 }
+
 .css-1s2u09g-control {
   min-height: 50px !important;
   box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
 }
+
 .css-b62m3t-container {
   width: 100%;
   padding: 0 20px;
@@ -56,5 +54,8 @@ img {
   }
   .css-b62m3t-container:first-child {
     margin-bottom: 0px;
+  }
+  .subheading {
+    margin-top: 100px;
   }
 }

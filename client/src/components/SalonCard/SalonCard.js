@@ -4,9 +4,6 @@ import "../SalonCard/salonCard.css";
 
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
-
-
-// const services = ["weave", "wigs", "natural", "braids"];
 const socials = [
     { facebook: "www.facebook.com/snippers" },
     { instagram: "www.instagram.com/snippers" },
@@ -22,7 +19,7 @@ const SalonCard = (props) => {
             <h2 className="salon-name">{props.name}</h2>
             <h3 className="salon-location">{props.location}</h3>
 
-            <p className="socials">{socials.map((social, index) => {
+            <p className="socials">{props.socials.map((social, index) => {
                 if (social.facebook) {
                     return (
                         <>
@@ -55,11 +52,3 @@ const SalonCard = (props) => {
     )
 }
 export default SalonCard;
-
-
-// in this component i need 
-// a title prop
-// a description prop
-// an image
-// social media icon // array of objects
-// services // array
