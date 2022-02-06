@@ -7,10 +7,9 @@ const getAllSalons = async () => {
   return response.data || [];
 };
 
-const getSalonsByLocation = async (location) => {
-  const userLocation = location
-  const response = await axios.get(`/api/salons/filter`, { params: userLocation });
-  console.log(response)
+const getSalonsByLocation = async (filteredData) => {
+  console.log(filteredData);
+  const response = await axios.get(`/api/salons/filter`, { params: { filteredData } });
   return response.data || [];
 }
 

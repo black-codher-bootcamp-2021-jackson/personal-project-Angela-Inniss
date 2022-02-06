@@ -1,0 +1,96 @@
+.card-container {
+  width: 250px;
+  min-height: 300px;
+  background-color: #ffffff;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+
+.salon-name {
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.salon-location {
+  font-size: 16px;
+  font-style: normal;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0px;
+}
+
+.salon-description {
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.services {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 5%;
+  background: #433532;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  bottom: -19px; /* did this because the services height is 19px and i want it to fit perfectly at the bottom can't remember how figured out*/
+  border-radius: 0px 0px 4px 4px;
+  margin: unset;
+}
+
+.salon-image {
+  height: 42%;
+  width: 100%;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.salon-heading {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  text-align: center;
+  line-height: 70px;
+  max-width: 100%;
+  width: 588px;
+  background: black;
+  color: white;
+  padding: 0px 10%;
+}
+
+.salon-image {
+  height: 42%;
+  width: 100%;
+}
+
+/*desktop styles*/
+@media screen and (min-width: 600px) {
+  .salon-image {
+    height: 50%;
+    width: 100%;
+  }
+  .card-container {
+    width: 250px;
+    min-height: 385px;
+  }
+}

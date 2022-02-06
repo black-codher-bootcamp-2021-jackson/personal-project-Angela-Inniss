@@ -1,10 +1,1 @@
-.filters-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.locations-dropdown,
-.services-dropdown {
-  flex: 1;
-}
