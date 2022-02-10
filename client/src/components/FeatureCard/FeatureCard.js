@@ -8,7 +8,7 @@ import braids from "../../images/girl3.jpg";
 const FeatureCard = (props) => {
 
     return (
-        <div className="feature-card-container">
+        <div id={props.id} className="feature-card-container">
             <h1>{props.heading}</h1>
             <h3>{props.subheading}</h3>
             <div className="feature-card-image">

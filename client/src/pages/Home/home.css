@@ -72,8 +72,28 @@
   .home-feature-cards-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
+  }
+  #card-one {
+    margin-top: 17%;
+  }
+  #card-three {
+    margin-bottom: 17%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home-feature-cards-container {
+    display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+    align-items: center;
+  }
+  .feature-cards-container {
+    width: 230px;
+  }
+  .feature-card-image img {
+    width: 185px;
   }
 }

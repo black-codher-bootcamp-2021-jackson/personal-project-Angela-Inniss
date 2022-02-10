@@ -6,6 +6,9 @@
   opacity: 0.8;
   position: relative;
   border-radius: 4px;
+  text-align: center;
+  color: #fef9f9;
+  font-family: Inter;
 }
 
 .feature-card-image img {

@@ -11,17 +11,20 @@ const FeatureCardData = [
     {
         heading: "Braids",
         subheading: "subheading",
-        imageSrc: braids
+        imageSrc: braids,
+        id: "card-one"
     },
     {
         heading: "Natural",
         subheading: "subheading",
-        imageSrc: natural
+        imageSrc: natural,
+        id: "card-two"
     },
     {
         heading: "Weave",
         subheading: "subheading",
-        imageSrc: weave
+        imageSrc: weave,
+        id: "card-three"
     }
 ];
 
@@ -53,12 +56,13 @@ const Home = () => {
             <div>subtext</div>
             <div className="home-feature-cards-container">
                 {FeatureCardData.map((data) => {
-                    const { heading, subheading, imageSrc } = data;
+                    const { heading, subheading, imageSrc, id } = data;
                     console.log(heading, subheading, imageSrc)
                     return (<FeatureCard
                         heading={heading}
                         subheading={subheading}
-                        imageSrc={imageSrc} />)
+                        imageSrc={imageSrc}
+                        id={id} />)
                 })}
             </div>
 
