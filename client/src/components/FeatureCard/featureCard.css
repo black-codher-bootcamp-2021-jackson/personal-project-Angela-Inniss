@@ -1,0 +1,17 @@
+.feature-card-container {
+  width: 200px;
+  height: 300px;
+  margin: 20px;
+  background-color: #9f8e79;
+  opacity: 0.8;
+  position: relative;
+  border-radius: 4px;
+}
+
+.feature-card-image img {
+  position: absolute;
+  left: 24px;
+  bottom: -35px;
+  width: 150px;
+  height: 200px;
+}

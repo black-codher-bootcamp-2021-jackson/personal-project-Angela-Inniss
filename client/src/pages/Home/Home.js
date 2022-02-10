@@ -1,10 +1,33 @@
 import React from "react";
-import SalonCard from "../../components/SalonCard/SalonCard";
 import "./home.css"
 import texture from "../../images/textureBG.png";
 import homegirl from "../../images/GirlHome.jpg"
+import FeatureCard from "../../components/FeatureCard/FeatureCard";
+import braids from "../../images/girl3.jpg";
+import weave from "../../images/girl4.jpg";
+import natural from "../../images/girl5.jpg";
+
+const FeatureCardData = [
+    {
+        heading: "Braids",
+        subheading: "subheading",
+        imageSrc: braids
+    },
+    {
+        heading: "Natural",
+        subheading: "subheading",
+        imageSrc: natural
+    },
+    {
+        heading: "Weave",
+        subheading: "subheading",
+        imageSrc: weave
+    }
+];
+
 
 const Home = () => {
+
     return (
         <>
             <nav className="navbar">
@@ -17,7 +40,7 @@ const Home = () => {
                     <div>
                         <h1>Salon</h1>
                         <h1>Search</h1>
-                        <h3>this is a subheading with text about webiste </h3>
+                        <h3 className="subtitle">this is a subheading with text about webiste </h3>
                     </div>
                 </div>
                 <div className="background-image">
@@ -28,6 +51,18 @@ const Home = () => {
             <img className="homepage-girl" src={homegirl}></img>
             <h1 className="sub-title">Find Inspo</h1>
             <div>subtext</div>
+            <div className="home-feature-cards-container">
+                {FeatureCardData.map((data) => {
+                    const { heading, subheading, imageSrc } = data;
+                    console.log(heading, subheading, imageSrc)
+                    return (<FeatureCard
+                        heading={heading}
+                        subheading={subheading}
+                        imageSrc={imageSrc} />)
+                })}
+            </div>
+
+
         </>
     )
 }
