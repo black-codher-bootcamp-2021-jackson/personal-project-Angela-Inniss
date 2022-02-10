@@ -41,9 +41,10 @@ const Home = () => {
             <div className="container">
                 <div className="background-white">
                     <div>
-                        <h1>Salon</h1>
-                        <h1>Search</h1>
+                        <h1 className="home-title">Salon</h1>
+                        <h1 className="home-title">Search</h1>
                         <h3 className="subtitle">this is a subheading with text about webiste </h3>
+                        <button className="btn-flat">Search salons now</button>
                     </div>
                 </div>
                 <div className="background-image">
@@ -53,7 +54,6 @@ const Home = () => {
             </div>
             <img className="homepage-girl" src={homegirl}></img>
             <h1 className="sub-title">Find Inspo</h1>
-            <div>subtext</div>
             <div className="home-feature-cards-container">
                 {FeatureCardData.map((data) => {
                     const { heading, subheading, imageSrc, id } = data;
@@ -65,6 +65,38 @@ const Home = () => {
                         id={id} />)
                 })}
             </div>
+            <h1 className="sub-title left margin-top">Featured Salons</h1>
+            <div className="home-featured-salons-container">
+                <div className="home-featured-salon"></div>
+                <div className="home-salon-ratings">
+                    <h2 className="featured-salon-heading">This is a h2 featured salon</h2>
+                    <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+                        optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+                    <div className="thumnail-container">
+                        <div className="thumbnail"></div>
+                        <div className="thumbnail"></div>
+                        <div className="thumbnail"></div>
+                    </div>
+                </div>
+            </div>
+            <div className="home-featured-salons-container">
+                <div className="home-featured-salon"></div>
+                <div className="home-salon-ratings">
+                    <h2 className="featured-salon-heading">This is a h2 featured salon</h2>
+                    <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+                        optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+                    <div className="thumnail-container">
+                        <div className="thumbnail"></div>
+                        <div className="thumbnail"></div>
+                        <div className="thumbnail"></div>
+                    </div>
+                </div>
+            </div>
+            <footer className="footer-image"><img src={texture} /></footer>
 
 
         </>
