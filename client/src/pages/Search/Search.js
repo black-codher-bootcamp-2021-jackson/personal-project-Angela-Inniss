@@ -79,7 +79,7 @@ const Search = () => {
 
 
     // async request as it's fetching data from DB 
-    const filterByService = async (services) => {
+    const filterByService = async (services, location) => {
         // console.log(services) //["wigs","weave"]
         // const servicesFilterd = services.map((service) => {
         //     return {
@@ -93,15 +93,33 @@ const Search = () => {
 
     }
 
+    const filterByServiceAndLocation = async (services, selectedLocation) => {
+        const response = await getSalonsByLocation(services, selectedLocation);
+    }
+
     // db.inventory.find( { tags: "red" } )
+    // when i filter by service i need to first check what the location is .
+    // if the location is manchester for example i only want to return braids cards which also have the location manchetser
+    // so if there is a location ? take location and pass it to the filter service function too to send to API
+    // else if there is no location then just return all locations with braids so just send braids filter
     const setAndFilterServices = (event) => {
-        console.log(event); // event is an array 
+        //check salon state use state or check location state use state - need to add one i think so can use as reference
+        if (selectedLocation) {
+            const services = event.map((service) => {
+                return service.value
+            })
+            setSelectedServices(services);
+
+            filterByServiceAndLocation(services, selectedLocation)
+        }
+
+        // console.log(event); // event is an array
+        // console.log(selectedLocation);
         const services = event.map((service) => {
             return service.value
         })
-        console.log(services)
+        // console.log(services)
         setSelectedServices(services);
-
         filterByService(services)
     }
     return (

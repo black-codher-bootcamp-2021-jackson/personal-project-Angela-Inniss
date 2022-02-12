@@ -1,11 +1,14 @@
-import React from "react";
-import "./home.css"
+import React, { useEffect } from "react";
+import AOS from 'aos';
 import texture from "../../images/textureBG.png";
 import homegirl from "../../images/GirlHome.jpg"
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
 import braids from "../../images/girl3.jpg";
 import weave from "../../images/girl4.jpg";
 import natural from "../../images/girl5.jpg";
+
+import "aos/dist/aos.css";
+import "./home.css";
 
 const FeatureCardData = [
     {
@@ -29,7 +32,14 @@ const FeatureCardData = [
 ];
 
 
+
 const Home = () => {
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000
+        });
+    }, []);
 
     return (
         <>
@@ -66,7 +76,7 @@ const Home = () => {
                 })}
             </div>
             <h1 className="sub-title left margin-top">Featured Salons</h1>
-            <div className="home-featured-salons-container">
+            <div data-aos="fade-left" className="home-featured-salons-container">
                 <div className="home-featured-salon"></div>
                 <div className="home-salon-ratings">
                     <h2 className="featured-salon-heading">This is a h2 featured salon</h2>
@@ -81,7 +91,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="home-featured-salons-container">
+            <div data-aos="fade-right" className="home-featured-salons-container">
                 <div className="home-featured-salon"></div>
                 <div className="home-salon-ratings">
                     <h2 className="featured-salon-heading">This is a h2 featured salon</h2>

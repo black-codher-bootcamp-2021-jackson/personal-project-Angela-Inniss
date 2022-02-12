@@ -10,6 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.17",
+    "aos": "^3.0.0-beta.6",
     "axios": "^0.25.0",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
