@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@200;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Lilita+One&family=Roboto+Slab:wght@200;500&display=swap");
+
+a {
+  text-decoration: none;
+  color: #433532;
+}
+
+.container {
+  /* border: 2px solid red; */
+  display: flex;
+  height: 650px;
+  font-family: "Lilita One", cursive;
+}
+
+.hero-title {
+  font-size: 64px;
+  line-height: 0.2;
+  color: #433532;
+}
+
+.hero-title2 {
+  font-size: 64px;
+  line-height: 0.2;
+  color: #433532;
+}
+
+.hero-subtitle {
+  font-family: "Inter", sans-serif;
+  color: #433532;
+}
+
+.background-image {
+  /* border: 2px solid green; */
+  flex: 1;
+  position: relative;
+}
+
+.hero-background-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-background-white {
+  /* background: hotpink; */
+  /* border: 2px solid hotpink; */
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-feature-image {
+  height: 440px;
+  width: 300px;
+  position: absolute;
+  top: 147px;
+  right: 20%;
+}
+
+.btn-flat {
+  padding: 15px 24px;
+  border-radius: 4px;
+  background: #fef9f9;
+  transition: background 0.3s ease;
+  border: unset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  font-family: inherit;
+}
+
+.btn-flat:hover {
+  background: #fef9f9;
+  color: white;
+}
+
+.sub-title {
+  text-align: center;
+  font-family: "Lilita One", cursive;
+}
+
+@media screen and (min-width: 600px) {
+}

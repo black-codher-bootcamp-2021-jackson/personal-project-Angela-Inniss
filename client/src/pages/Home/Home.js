@@ -46,8 +46,14 @@ const Home = () => {
     return (
         <>
             <nav className="navbar">
-                <div className="nav-item">About</div>
-                <div className="nav-item" >Be Insipired</div>
+                <Link to="/">
+                    <div className="nav-item">About</div>
+                </Link>
+
+                <Link to="/landing-braids">
+                    <div className="nav-item" >Be Insipired</div>
+                </Link>
+
                 <Link to="/search">
                     <div className="nav-item">
                         Search
@@ -88,7 +94,7 @@ const Home = () => {
             <div data-aos="fade-left" className="home-featured-salons-container">
                 <div className="home-featured-salon"></div>
                 <div className="home-salon-ratings">
-                    <h2 className="featured-salon-heading">This is a h2 featured salon</h2>
+                    <h2 className="featured-salon-heading">Elite Hair Lounge London</h2>
                     <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
@@ -103,7 +109,7 @@ const Home = () => {
             <div data-aos="fade-right" className="home-featured-salons-container">
                 <div className="home-featured-salon"></div>
                 <div className="home-salon-ratings">
-                    <h2 className="featured-salon-heading">This is a h2 featured salon</h2>
+                    <h2 className="featured-salon-heading">House Of Tinu</h2>
                     <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                         molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
                         numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium

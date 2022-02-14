@@ -135,6 +135,7 @@ const Search = () => {
                                 name={salon.name}
                                 location={salon.location}
                                 description={salon.description}
+                                image={salon.image}
                                 services={salon.services}
                                 socials={salon.socials}
                                 facebookLink={salon.facebook}

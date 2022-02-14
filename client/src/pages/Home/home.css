@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto+Slab:wght@200;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Lilita+One&family=Roboto+Slab:wght@200;500&display=swap");
+
 .navbar {
   /* outline: 2px solid red; */
   display: flex;
   justify-content: space-around;
+  font-family: "Lilita One", cursive;
+}
+
+a {
+  text-decoration: none;
+  color: #433532;
 }
 
 .container {
@@ -16,9 +23,11 @@
 .home-title {
   font-size: 64px;
   line-height: 0.2;
+  color: #433532;
 }
 .subtitle {
   font-family: "Inter", sans-serif;
+  color: #433532;
 }
 
 .background-image {
@@ -137,23 +146,24 @@
   font-size: 30px;
   margin: 20px;
   text-decoration: none;
-  color: inherit;
 }
 .social-links h3 {
   margin: unset;
   font-family: "Lilita One", cursive;
   text-align: center;
   margin-bottom: 20px;
+  color: #433532;
 }
 
 .social-links-inner {
   display: flex;
   flex-direction: column;
 }
+
 .link-footer {
   margin-bottom: 20px;
   text-decoration: none;
-  color: inherit;
+  color: #433532;
   font-size: 20px;
 }
 
