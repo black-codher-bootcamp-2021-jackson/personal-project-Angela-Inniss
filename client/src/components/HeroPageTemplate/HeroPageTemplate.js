@@ -28,6 +28,26 @@ const HeroPageTemplate = (props) => {
                 </div>
             </div>
 
+            <div className="inspo-container">
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+                <div className="inspo-item">
+                    <img src={homegirl} />
+                </div>
+            </div>
 
 
         </>

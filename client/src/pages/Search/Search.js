@@ -12,11 +12,17 @@ import "../Search/search.css";
 
 
 const Search = () => {
-    const [salons, setSalons] = useState(null);
+    const [salons, setSalons] = useState([]); // original full list..
+    const [selectedSalons, setSelectedSalons] = useState([]);
     const [locationsList, setLocations] = useState([]);
     const [servicesList, setServices] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
+
+    // one common function to filter
+
+    // one function to update location state
+    // one function to update services 
 
     useEffect(() => {
         async function getSalons() {
@@ -108,6 +114,8 @@ const Search = () => {
         setSelectedServices(services);
         filterByService(services)
     }
+
+    // start with original list and apply both filters 
     return (
         <div>
             <div className="image-container">
