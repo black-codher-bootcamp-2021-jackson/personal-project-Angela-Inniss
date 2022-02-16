@@ -69,25 +69,20 @@ const Search = () => {
             }
         }
         getSalons();
-    }, [salons]);
+    }, []);
 
-
-    const filter = async () => {
-        const response = await filterSalons({ location: selectedLocation, services: selectedServices });
-        setSalons(response)
-
-    }
 
     useEffect(() => {
+        async function filter() {
+            const response = await filterSalons({ location: selectedLocation, services: selectedServices });
+            setSalons(response);
+        }
         filter();
     }, [selectedLocation, selectedServices]);
-
-    // send data to same function on submis or add data 
 
     const setAndFilterLocation = (event) => {
         const location = event.value
         setSelectedLocation(location);
-        filter(location)
     }
 
     const setAndFilterServices = (event) => {
@@ -95,7 +90,6 @@ const Search = () => {
             return service.value
         })
         setSelectedServices(services);
-        filter(services)
     }
 
 

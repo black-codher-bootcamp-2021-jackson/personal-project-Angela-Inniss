@@ -14,8 +14,14 @@ const salonRoutes = (app) => {
   // a GET request does not have a response body. Have to send the query in the url params and call req.query
 
   app.get(`/api/salons/filter`, async (req, res) => {
-
-
+    console.log("angela", req.query);
+    const filter = req.query;
+    const { location, services } = req.query; // "manchester" ,["wigs"]
+    console.log("response", res);
+    const response = await Salon.find({ location: location, services: { $in: services } });
+    // { location: "Manchester", services: { $all: ["wigs"] } },
+    console.log(response);
+    return res.status(200).send(response);
 
     // try {
     //   // console.log("req", req.query);

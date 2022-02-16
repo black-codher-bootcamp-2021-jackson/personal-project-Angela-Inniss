@@ -3,6 +3,7 @@
 import axios from "axios";
 
 const getAllSalons = async () => {
+  console.log("inside get all salons");
   const response = await axios.get(`/api/salon`);
   return response.data || [];
 };
@@ -15,8 +16,16 @@ const getAllSalons = async () => {
 
 const filterSalons = async (filteredData) => {
   console.log("in api service", filteredData);
-  const response = await axios.get(`/api/salons/filter`, { params: { filteredData } });
+
+  const params = {
+    location: filteredData.location,
+    services: filteredData.services
+
+  }
+  const response = await axios.get(`/api/salons/filter`, { params: params });
+  console.log(response);
   return response.data || [];
+
 }
 
 // All of the endpoints in this file can be exported below
