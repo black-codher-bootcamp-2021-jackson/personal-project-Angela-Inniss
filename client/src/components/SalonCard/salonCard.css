@@ -71,11 +71,10 @@
   font-size: 60px;
   text-align: center;
   line-height: 70px;
-  max-width: 100%;
-  width: 588px;
   background: black;
   color: white;
   padding: 0px 10%;
+  /* width: fit-content; */
 }
 
 .salon-image {
@@ -92,5 +91,9 @@
   .card-container {
     width: 250px;
     min-height: 385px;
+  }
+  .salon-heading {
+    max-width: 100%;
+    width: 588px;
   }
 }

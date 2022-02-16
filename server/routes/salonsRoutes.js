@@ -19,7 +19,10 @@ const salonRoutes = (app) => {
       const userFilter = req.query.filteredData;
       console.log(userFilter);
       console.log(typeof (userFilter));
-      const userFilterTwo = JSON.parse(userFilter); // changes string to an objec
+
+      const userFilterTwo = !(Array.isArray(userFilter)) && JSON.parse(userFilter); // changes string to an objec
+
+
 
       let response;
 

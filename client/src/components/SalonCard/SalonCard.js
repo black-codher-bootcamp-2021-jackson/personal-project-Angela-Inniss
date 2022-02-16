@@ -15,7 +15,7 @@ const SalonCard = (props) => {
 
     return (
         <div className="card-container">
-            <img alt="image of a salon" className="salon-image" width="100%" height="50%" src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGFpciUyMHNhbG9ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" />
+            <img alt="salon" className="salon-image" width="100%" height="50%" src={props.image} />
             <h2 className="salon-name">{props.name}</h2>
             <h3 className="salon-location">{props.location}</h3>
 

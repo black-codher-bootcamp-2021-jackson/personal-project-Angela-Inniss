@@ -30,6 +30,10 @@ const salonSchema = new Schema({
     type: String,
     required: true
   },
+  image: {
+    type: String,
+    required: true
+  },
   services: {
     type: [String],
     required: false

@@ -1,28 +1,28 @@
 import React, { useState, useEffect } from "react";
 import SelectDropDownFilter from "../../components/SelectDropdown/SelectDropdown";
 import SalonCard from "../../components/SalonCard/SalonCard";
-// import salon from "../../images/salonImage.jpg";
 import salon from "../../images/girl1.jpg";
-// import salon from "../../images/girl2.jpg";
-import "../../../src/App.css";
-import "../Search/search.css";
-
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllSalons, getSalonsByLocation } from "../../services/salonService";
 
+import "../../../src/App.css";
+import "../Search/search.css";
 
 
 const Search = () => {
-    const [salons, setSalons] = useState(null);
+    const [salons, setSalons] = useState([]); // original full list..
+    const [selectedSalons, setSelectedSalons] = useState([]);
     const [locationsList, setLocations] = useState([]);
     const [servicesList, setServices] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState("");
-    const [selectedServices, setSelectedServices] = useState("");
+    const [selectedServices, setSelectedServices] = useState([]);
 
+    // one common function to filter
 
-    // console.log(selectedLocation);
+    // one function to update location state
+    // one function to update services 
 
     useEffect(() => {
         async function getSalons() {
@@ -77,33 +77,45 @@ const Search = () => {
         filterSalonByLocation(location)
     }
 
-
-    // async request as it's fetching data from DB 
-    const filterByService = async (services) => {
-        // console.log(services) //["wigs","weave"]
-        // const servicesFilterd = services.map((service) => {
-        //     return {
-        //         services: service // {services: "wigs"} , {services: "weave"}
-        //     }
-        // })
-
-        // console.log(servicesFilterd)
-        const response = await getSalonsByLocation(services);
+    // async request as it's fetching data from DB
+    // if there is a already a location selected then map through the salons in useState as that means the user
+    // only wants to see services from that location
+    // then we map through the services array selected by the user (selectedServices) e.g. ['braids'] - user has selected braids
+    // then we check for each selectedService if the services from the salons that were already already in the state from a particular location i.e Manchester
+    // inclues the services selected by the user then push it into a new array and update the salons state (useState)
+    const filterByService = async (selectedServices) => {
+        console.log(selectedServices)
+        let servicesByLocation = []
+        if (selectedLocation) {
+            salons.map((salon) => {
+                const { services, name } = salon;
+                // console.log(services);
+                // console.log(name);
+                selectedServices.map((selectedService) => {
+                    if (services.includes(selectedService)) {
+                        servicesByLocation.push(salon);
+                    }
+                })
+            })
+            // console.log(filteredServiesWithLocation);
+            setSalons(servicesByLocation);
+            return;
+        }
+        const response = await getSalonsByLocation(selectedServices);
         setSalons(response);
 
     }
 
-    // db.inventory.find( { tags: "red" } )
     const setAndFilterServices = (event) => {
-        console.log(event); // event is an array 
         const services = event.map((service) => {
             return service.value
         })
-        console.log(services)
+        // console.log(services)
         setSelectedServices(services);
-
         filterByService(services)
     }
+
+    // start with original list and apply both filters 
     return (
         <div>
             <div className="image-container">
@@ -131,6 +143,7 @@ const Search = () => {
                                 name={salon.name}
                                 location={salon.location}
                                 description={salon.description}
+                                image={salon.image}
                                 services={salon.services}
                                 socials={salon.socials}
                                 facebookLink={salon.facebook}
@@ -148,8 +161,3 @@ const Search = () => {
 }
 
 export default Search;
-
-// pages needed on app, 
-// 1. home page local host 3000 / - will show front cover with static content and button to go to search (App.js) or component called home
-// 2. search page links from home /search will show map and search bars and salon cards with info
-// 3. landing pages for inspo  / weaves-inspo / braids-inspo / natural=inspo / relaxed-inspo
