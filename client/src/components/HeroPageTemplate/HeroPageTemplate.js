@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
-import texture from "../../images/textureBG.png";
 import homegirl from "../../images/GirlHome.jpg";
 import girl1 from "../../images/girl1.jpg";
 import girl2 from "../../images/girl2.jpg"
