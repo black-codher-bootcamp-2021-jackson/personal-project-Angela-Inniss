@@ -14,41 +14,44 @@ const salonRoutes = (app) => {
   // a GET request does not have a response body. Have to send the query in the url params and call req.query
 
   app.get(`/api/salons/filter`, async (req, res) => {
-    try {
-      console.log("req", req.query);
-      const userFilter = req.query.filteredData;
-      console.log(userFilter);
-      console.log(typeof (userFilter));
-
-      const userFilterTwo = !(Array.isArray(userFilter)) && JSON.parse(userFilter); // changes string to an objec
 
 
 
-      let response;
+    // try {
+    //   // console.log("req", req.query);
+    //   const userFilter = req.query.filteredData;
+    //   // console.log(userFilter);
+    //   // console.log(typeof (userFilter));
 
-      if (userFilterTwo.location) {
-        response = await Salon.find(userFilterTwo);
-        console.log(response)
-      }
+    //   const userFilterTwo = !(Array.isArray(userFilter)) && JSON.parse(userFilter); // changes string to an objec
 
-      else if (Array.isArray(userFilter)) {
-        console.log("in array")
-        response = await Salon.find({
-          services: {
-            $in: userFilter
-          }
-        })
-      }
-      else {
-        response = [];
-      }
 
-      return res.status(200).send(response);
 
-    }
-    catch (err) {
-      console.log(err)
-    }
+    //   let response;
+
+    //   if (userFilterTwo.location) {
+    //     response = await Salon.find(userFilterTwo);
+    //     // console.log(response)
+    //   }
+
+    //   else if (Array.isArray(userFilter)) {
+    //     // console.log("in array")
+    //     response = await Salon.find({
+    //       services: {
+    //         $in: userFilter
+    //       }
+    //     })
+    //   }
+    //   else {
+    //     response = [];
+    //   }
+
+    //   return res.status(200).send(response);
+
+    // }
+    // catch (err) {
+    //   console.log(err)
+    // }
   })
 
 
