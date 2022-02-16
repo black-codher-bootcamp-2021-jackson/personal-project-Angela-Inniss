@@ -1,11 +1,4 @@
-import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
-import homegirl from "../../images/GirlHome.jpg";
-import girl1 from "../../images/girl1.jpg";
-import girl2 from "../../images/girl2.jpg"
-import girl3 from "../../images/girl3.jpg"
-import girl4 from "../../images/girl4.jpg";
-import girl5 from "../../images/girl5.jpg"
+import React from "react";
 
 import "./heroPageTemplate.css";
 
@@ -20,11 +13,7 @@ const HeroPageTemplate = (props) => {
                         <h1 className="hero-title">{props.title}</h1>
                         <h1 className="hero-title2">{props.title2}</h1>
                         <h3 className="hero-subtitle">{props.subtitle}</h3>
-                        <Link to="/search">
-                            <button className="btn-flat">
-                                {props.cta}
-                            </button>
-                        </Link>
+                        <a href="#inspo-container">{props.cta}</a>
                     </div>
                 </div>
                 <div className="hero-background-image">
@@ -32,24 +21,24 @@ const HeroPageTemplate = (props) => {
                 </div>
             </div>
 
-            <div className="inspo-container">
+            <div id="inspo-container" className="inspo-container">
                 <div className="inspo-item">
-                    <img src={homegirl} />
+                    <img alt="hairstyle1" src={props.image1} />
                 </div>
                 <div className="inspo-item">
-                    <img src={girl1} />
+                    <img alt="hairstyle2" src={props.image2} />
                 </div>
                 <div className="inspo-item">
-                    <img src={girl2} />
+                    <img alt="hairstyle3" src={props.image3} />
                 </div>
                 <div className="inspo-item">
-                    <img src={girl3} />
+                    <img alt="hairstyle4" src={props.image4} />
                 </div>
                 <div className="inspo-item">
-                    <img src={girl4} />
+                    <img alt="hairstyle5" src={props.image5} />
                 </div>
                 <div className="inspo-item">
-                    <img src={girl5} />
+                    <img alt="hairstyle6" src={props.image6} />
                 </div>
             </div>
 
