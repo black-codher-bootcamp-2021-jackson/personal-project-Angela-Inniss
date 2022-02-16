@@ -37,6 +37,7 @@ a {
 }
 
 .hero-background-image img {
+  max-width: 539px; /*if image is reaally wide we want to restrict its width*/
   width: 100%;
   height: 100%;
 }
