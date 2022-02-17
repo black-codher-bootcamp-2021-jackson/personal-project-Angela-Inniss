@@ -1,6 +1,6 @@
 .card-container {
-  width: 250px;
-  min-height: 300px;
+  width: 302px;
+  min-height: 200px;
   background-color: #ffffff;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -34,6 +34,13 @@
   line-height: 12px;
   letter-spacing: 0em;
   text-align: center;
+  padding: 0 10px;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: 2px solid red;
+  height: 50px;
+  margin: unset;
 }
 
 .services {
@@ -89,8 +96,8 @@
     width: 100%;
   }
   .card-container {
-    width: 250px;
-    min-height: 385px;
+    width: 302px;
+    min-height: 200px;
   }
   .salon-heading {
     max-width: 100%;

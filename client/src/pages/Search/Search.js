@@ -4,10 +4,6 @@ import SalonCard from "../../components/SalonCard/SalonCard";
 import salon from "../../images/girl1.jpg";
 import { servicesList } from "./servicesList";
 import { locationsList } from "./locationsList";
-<<<<<<< HEAD
-=======
-
->>>>>>> 94cda93 (manage to send data to service)
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
@@ -37,52 +33,28 @@ const Search = () => {
             if (!salons) {
                 const response = await getAllSalons();
                 setSalons(response);
-<<<<<<< HEAD
-
-                // set location data for drop down 
-                // let locations = response.map((salon) => {
-                //     const { location } = salon;
-                //     return {
-                //         value: location,
-                //         label: location
-                //     }
-                // })
-                // setLocations(locations);
-
-                // set services data from API
-                // response.map((salon) => {
-                //     const { services } = salon;
-                //     // console.log(services)
-                //     const formattedServices = services.map((service) => {
-                //         // console.log(service)
-                //         return {
-                //             value: service,
-                //             label: service
-                //         }
-                //     })
-                //     // console.log(formattedServices);
-
-                //     setServices(formattedServices)
-                // })
-=======
->>>>>>> 94cda93 (manage to send data to service)
             }
         }
         getSalons();
-    }, []);
+    }, [salons]);
 
+
+    const filter = async () => {
+        const response = await filterSalons({ location: selectedLocation, services: selectedServices });
+        setSalons(response)
+
+    }
 
     useEffect(() => {
-        async function filter() {
-            const response = await filterSalons({ location: selectedLocation, services: selectedServices });
-            setSalons(response);
-        }
         filter();
     }, [selectedLocation, selectedServices]);
+
+    // send data to same function on submis or add data 
 
     const setAndFilterLocation = (event) => {
         const location = event.value
         setSelectedLocation(location);
+        filter(location)
     }
 
     const setAndFilterServices = (event) => {
@@ -90,6 +62,7 @@ const Search = () => {
             return service.value
         })
         setSelectedServices(services);
+        filter(services)
     }
 
 
