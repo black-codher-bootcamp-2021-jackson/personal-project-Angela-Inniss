@@ -7,7 +7,7 @@ import { locationsList } from "./locationsList";
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
-import { getAllSalons, getSalonsByLocation } from "../../services/salonService";
+import { getAllSalons, filterSalons, filterSalonsByLocation } from "../../services/salonService";
 
 import "../../../src/App.css";
 import "../Search/search.css";
@@ -15,111 +15,47 @@ import "../Search/search.css";
 
 
 const Search = () => {
-    const [salons, setSalons] = useState(null); // original full list..
-    const [selectedSalons, setSelectedSalons] = useState([]);
-    // const [locationsList, setLocations] = useState([]);
-    // const [servicesList, setServices] = useState([]);
+    const [salons, setSalons] = useState(null);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
-
-    // one common function to filter
-
-    // one function to update location state
-    // one function to update services 
 
     useEffect(() => {
         console.log("hello")
         async function getSalons() {
             if (!salons) {
                 const response = await getAllSalons();
-
-                // set salon data 
                 setSalons(response);
-
-                // set location data for drop down 
-                // let locations = response.map((salon) => {
-                //     const { location } = salon;
-                //     return {
-                //         value: location,
-                //         label: location
-                //     }
-                // })
-                // setLocations(locations);
-
-                // set services data from API
-                // response.map((salon) => {
-                //     const { services } = salon;
-                //     // console.log(services)
-                //     const formattedServices = services.map((service) => {
-                //         // console.log(service)
-                //         return {
-                //             value: service,
-                //             label: service
-                //         }
-                //     })
-                //     // console.log(formattedServices);
-
-                //     setServices(formattedServices)
-                // })
             }
         }
         getSalons();
     }, [salons]);
 
-    // send data to same function on submis or add data 
+    useEffect(() => {
+        async function filter() {
+            if (selectedLocation !== "" && selectedServices.length === 0) {
+                const response = await filterSalonsByLocation({ location: selectedLocation });
+                setSalons(response);
+            }
+            else if (selectedLocation !== "" && selectedServices.length !== 0) {
+                const response = await filterSalons({ location: selectedLocation, services: selectedServices });
+                setSalons(response);
+            }
+        }
+        filter();
+    }, [selectedLocation, selectedServices]);
 
-    const filterSalonByLocation = async (location) => {
-        console.log(location)
-        const response = await getSalonsByLocation({ location: location }); // needs to be called asyncronosly
-        setSalons(response);
-    }
-
-    // function fires when user selects a location
-    const setAndFilterLocation = (event) => {
+    const setLocation = (event) => {
         const location = event.value
         setSelectedLocation(location);
-        filterSalonByLocation(location)
     }
 
-    // async request as it's fetching data from DB
-    // if there is a already a location selected then map through the salons in useState as that means the user
-    // only wants to see services from that location
-    // then we map through the services array selected by the user (selectedServices) e.g. ['braids'] - user has selected braids
-    // then we check for each selectedService if the services from the salons that were already already in the state from a particular location i.e Manchester
-    // inclues the services selected by the user then push it into a new array and update the salons state (useState)
-    const filterByService = async (selectedServices) => {
-        console.log(selectedServices)
-        let servicesByLocation = []
-        if (selectedLocation) {
-            salons.map((salon) => {
-                const { services, name } = salon;
-                // console.log(services);
-                // console.log(name);
-                selectedServices.map((selectedService) => {
-                    if (services.includes(selectedService)) {
-                        servicesByLocation.push(salon);
-                    }
-                })
-            })
-            // console.log(filteredServiesWithLocation);
-            setSalons(servicesByLocation);
-            return;
-        }
-        const response = await getSalonsByLocation(selectedServices);
-        setSalons(response);
-
-    }
-
-    const setAndFilterServices = (event) => {
+    const setServices = (event) => {
         const services = event.map((service) => {
             return service.value
         })
-        // console.log(services)
         setSelectedServices(services);
-        filterByService(services)
     }
 
-    // start with original list and apply both filters 
     return (
         <div>
             <div className="image-container">
@@ -128,13 +64,14 @@ const Search = () => {
                         placeholder="Choose Location..."
                         options={locationsList}
                         className="locations-dropdown"
-                        onChange={(event) => setAndFilterLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
+                        onChange={(event) => setLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
                     />
                     <SelectDropDownFilter placeholder="Choose Services"
                         isMulti={true}
                         options={servicesList}
-                        className="services-dropdown" onChange={(event) => setAndFilterServices(event)} />
+                        className="services-dropdown" onChange={(event) => setServices(event)} />
                 </div>
+
                 <img src={salon} />
             </div>
             <div>

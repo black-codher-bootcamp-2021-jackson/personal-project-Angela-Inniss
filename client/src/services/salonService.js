@@ -7,11 +7,23 @@ const getAllSalons = async () => {
   return response.data || [];
 };
 
-const getSalonsByLocation = async (filteredData) => {
-  // console.log(filteredData);
-  const response = await axios.get(`/api/salons/filter`, { params: { filteredData } });
+const filterSalons = async (filteredData) => {
+  const params = {
+    location: filteredData.location,
+    services: filteredData.services
+  }
+  const response = await axios.get(`/api/salons/filter`, { params: params });
+  return response.data || [];
+
+}
+
+const filterSalonsByLocation = async (filteredData) => {
+  const params = {
+    location: filteredData.location
+  }
+  const response = await axios.get(`/api/salons/filterLocation`, { params: params });
   return response.data || [];
 }
 
 // All of the endpoints in this file can be exported below
-export { getAllSalons, getSalonsByLocation };
+export { getAllSalons, filterSalons, filterSalonsByLocation };
