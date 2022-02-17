@@ -18,19 +18,22 @@ const FeatureCardData = [
         heading: "Braids",
         subheading: "subheading",
         imageSrc: braids,
-        id: "card-one"
+        id: "card-one",
+        url: "/landing-braids"
     },
     {
         heading: "Natural",
         subheading: "subheading",
         imageSrc: natural,
-        id: "card-two"
+        id: "card-two",
+        url: "/landing-natural"
     },
     {
         heading: "Weave",
         subheading: "subheading",
         imageSrc: weave,
-        id: "card-three"
+        id: "card-three",
+        url: "/landing-weave"
     }
 ];
 
@@ -74,20 +77,22 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="background-image">
-                    <img src={texture}></img>
+                    <img alt="backgroundCover" src={texture}></img>
                 </div>
             </div>
-            <img className="homepage-girl" src={homegirl}></img>
+            <img alt="girl-with-twists" className="homepage-girl" src={homegirl}></img>
             <h1 className="sub-title">Find Inspo</h1>
             <div className="home-feature-cards-container">
                 {FeatureCardData.map((data) => {
-                    const { heading, subheading, imageSrc, id } = data;
+                    const { heading, subheading, imageSrc, id, url } = data;
                     console.log(heading, subheading, imageSrc)
                     return (<FeatureCard
                         heading={heading}
                         subheading={subheading}
                         imageSrc={imageSrc}
-                        id={id} />)
+                        id={id}
+                        url={url} />
+                    )
                 })}
             </div>
             <h1 className="sub-title left margin-top">Featured Salons</h1>
@@ -121,8 +126,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-            {/* <img src={texture} /> */}
             <div className="footer">
                 <div className="footer-links">
                     <Link className="link-footer" to="">About </Link>

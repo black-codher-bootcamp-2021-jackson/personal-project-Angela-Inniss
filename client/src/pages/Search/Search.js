@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import SelectDropDownFilter from "../../components/SelectDropdown/SelectDropdown";
 import SalonCard from "../../components/SalonCard/SalonCard";
 import salon from "../../images/girl1.jpg";
+import { servicesList } from "./servicesList";
+import { locationsList } from "./locationsList";
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
@@ -11,11 +13,12 @@ import "../../../src/App.css";
 import "../Search/search.css";
 
 
+
 const Search = () => {
-    const [salons, setSalons] = useState([]); // original full list..
+    const [salons, setSalons] = useState(null); // original full list..
     const [selectedSalons, setSelectedSalons] = useState([]);
-    const [locationsList, setLocations] = useState([]);
-    const [servicesList, setServices] = useState([]);
+    // const [locationsList, setLocations] = useState([]);
+    // const [servicesList, setServices] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
@@ -25,6 +28,7 @@ const Search = () => {
     // one function to update services 
 
     useEffect(() => {
+        console.log("hello")
         async function getSalons() {
             if (!salons) {
                 const response = await getAllSalons();
@@ -33,30 +37,30 @@ const Search = () => {
                 setSalons(response);
 
                 // set location data for drop down 
-                let locations = response.map((salon) => {
-                    const { location } = salon;
-                    return {
-                        value: location,
-                        label: location
-                    }
-                })
-                setLocations(locations);
+                // let locations = response.map((salon) => {
+                //     const { location } = salon;
+                //     return {
+                //         value: location,
+                //         label: location
+                //     }
+                // })
+                // setLocations(locations);
 
                 // set services data from API
-                response.map((salon) => {
-                    const { services } = salon;
-                    // console.log(services)
-                    const formattedServices = services.map((service) => {
-                        // console.log(service)
-                        return {
-                            value: service,
-                            label: service
-                        }
-                    })
-                    // console.log(formattedServices);
+                // response.map((salon) => {
+                //     const { services } = salon;
+                //     // console.log(services)
+                //     const formattedServices = services.map((service) => {
+                //         // console.log(service)
+                //         return {
+                //             value: service,
+                //             label: service
+                //         }
+                //     })
+                //     // console.log(formattedServices);
 
-                    setServices(formattedServices)
-                })
+                //     setServices(formattedServices)
+                // })
             }
         }
         getSalons();
