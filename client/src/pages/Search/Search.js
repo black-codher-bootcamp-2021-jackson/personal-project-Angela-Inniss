@@ -7,7 +7,11 @@ import { locationsList } from "./locationsList";
 
 
 // SERVICES THAT CALL OUR API ENDPOINTS
+<<<<<<< HEAD
 import { getAllSalons, getSalonsByLocation, filterSalons } from "../../services/salonService";
+=======
+import { getAllSalons, filterSalons, filterSalonsByLocation } from "../../services/salonService";
+>>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
 
 import "../../../src/App.css";
 import "../Search/search.css";
@@ -15,10 +19,14 @@ import "../Search/search.css";
 
 
 const Search = () => {
+<<<<<<< HEAD
     const [salons, setSalons] = useState(null); // original full list..
     const [selectedSalons, setSelectedSalons] = useState([]);
     // const [locationsList, setLocations] = useState([]);
     // const [servicesList, setServices] = useState([]);
+=======
+    const [salons, setSalons] = useState(null);
+>>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
@@ -38,6 +46,7 @@ const Search = () => {
         getSalons();
     }, [salons]);
 
+<<<<<<< HEAD
 
     const filter = async () => {
         const response = await filterSalons({ location: selectedLocation, services: selectedServices });
@@ -46,18 +55,31 @@ const Search = () => {
     }
 
     useEffect(() => {
+=======
+    useEffect(() => {
+        async function filter() {
+            if (selectedLocation !== "" && selectedServices.length === 0) {
+                const response = await filterSalonsByLocation({ location: selectedLocation });
+                setSalons(response);
+            }
+            else if (selectedLocation !== "" && selectedServices.length !== 0) {
+                const response = await filterSalons({ location: selectedLocation, services: selectedServices });
+                setSalons(response);
+            }
+        }
+>>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
         filter();
     }, [selectedLocation, selectedServices]);
 
     // send data to same function on submis or add data 
 
-    const setAndFilterLocation = (event) => {
+    const setLocation = (event) => {
         const location = event.value
         setSelectedLocation(location);
         filter(location)
     }
 
-    const setAndFilterServices = (event) => {
+    const setServices = (event) => {
         const services = event.map((service) => {
             return service.value
         })
@@ -100,13 +122,12 @@ const Search = () => {
                         placeholder="Choose Location..."
                         options={locationsList}
                         className="locations-dropdown"
-                        onChange={(event) => setAndFilterLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
+                        onChange={(event) => setLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
                     />
                     <SelectDropDownFilter placeholder="Choose Services"
                         isMulti={true}
                         options={servicesList}
-                        className="services-dropdown" onChange={(event) => setAndFilterServices(event)} />
-                    <button> search </button>
+                        className="services-dropdown" onChange={(event) => setServices(event)} />
                 </div>
 
                 <img src={salon} />
