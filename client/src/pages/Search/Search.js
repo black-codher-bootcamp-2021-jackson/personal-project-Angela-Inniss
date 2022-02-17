@@ -8,10 +8,14 @@ import { locationsList } from "./locationsList";
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { getAllSalons, getSalonsByLocation, filterSalons } from "../../services/salonService";
 =======
 import { getAllSalons, filterSalons, filterSalonsByLocation } from "../../services/salonService";
 >>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
+=======
+import { getAllSalons, getSalonsByLocation, filterSalons } from "../../services/salonService";
+>>>>>>> c507304 ( in rebase commit)
 
 import "../../../src/App.css";
 import "../Search/search.css";
@@ -20,13 +24,19 @@ import "../Search/search.css";
 
 const Search = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c507304 ( in rebase commit)
     const [salons, setSalons] = useState(null); // original full list..
     const [selectedSalons, setSelectedSalons] = useState([]);
     // const [locationsList, setLocations] = useState([]);
     // const [servicesList, setServices] = useState([]);
+<<<<<<< HEAD
 =======
     const [salons, setSalons] = useState(null);
 >>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
+=======
+>>>>>>> c507304 ( in rebase commit)
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
@@ -47,6 +57,9 @@ const Search = () => {
     }, [salons]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c507304 ( in rebase commit)
 
     const filter = async () => {
         const response = await filterSalons({ location: selectedLocation, services: selectedServices });
@@ -54,6 +67,7 @@ const Search = () => {
 
     }
 
+<<<<<<< HEAD
     useEffect(() => {
 =======
     useEffect(() => {
@@ -68,18 +82,21 @@ const Search = () => {
             }
         }
 >>>>>>> 773681f (add conditions to 2nd useeffect so first runs, clean up service and routes files)
+=======
+    useEffect(() => {
+>>>>>>> c507304 ( in rebase commit)
         filter();
     }, [selectedLocation, selectedServices]);
 
     // send data to same function on submis or add data 
 
-    const setLocation = (event) => {
+    const setAndFilterLocation = (event) => {
         const location = event.value
         setSelectedLocation(location);
         filter(location)
     }
 
-    const setServices = (event) => {
+    const setAndFilterServices = (event) => {
         const services = event.map((service) => {
             return service.value
         })
@@ -122,12 +139,13 @@ const Search = () => {
                         placeholder="Choose Location..."
                         options={locationsList}
                         className="locations-dropdown"
-                        onChange={(event) => setLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
+                        onChange={(event) => setAndFilterLocation(event)} // if we don't add a call back () => {} it will cause an infinite loop
                     />
                     <SelectDropDownFilter placeholder="Choose Services"
                         isMulti={true}
                         options={servicesList}
-                        className="services-dropdown" onChange={(event) => setServices(event)} />
+                        className="services-dropdown" onChange={(event) => setAndFilterServices(event)} />
+                    <button> search </button>
                 </div>
 
                 <img src={salon} />
