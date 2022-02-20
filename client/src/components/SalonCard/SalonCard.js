@@ -1,8 +1,10 @@
 
 import React from "react";
+
 import "../SalonCard/salonCard.css";
 
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import SaveToFavourites from "../LikeButtonCounter/SaveToFavourites";
 
 const socials = [
     { facebook: "www.facebook.com/snippers" },
@@ -15,6 +17,7 @@ const SalonCard = (props) => {
 
     return (
         <div className="card-container">
+            <SaveToFavourites />
             <img alt="salon" className="salon-image" width="100%" height="50%" src={props.image} />
             <h2 className="salon-name">{props.name}</h2>
             <h3 className="salon-location">{props.location}</h3>

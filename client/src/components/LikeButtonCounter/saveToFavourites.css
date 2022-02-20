@@ -1,0 +1,29 @@
+.heart {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+
+.heart svg {
+  height: 30px;
+  width: 30px;
+}
+
+.heart-solid path {
+  fill: red;
+}
+
+.heart-outline path {
+  fill: white;
+}
+
+.heart-button {
+  background: transparent;
+  border: 0;
+}
+
+.like-count {
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
