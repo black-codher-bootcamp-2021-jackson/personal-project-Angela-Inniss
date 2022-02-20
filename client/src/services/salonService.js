@@ -8,6 +8,7 @@ const getAllSalons = async () => {
 };
 
 const filterSalons = async (filteredData) => {
+  console.log(filteredData);
   const params = {
     location: filteredData.location,
     services: filteredData.services

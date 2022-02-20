@@ -68,7 +68,7 @@ const Home = () => {
                     <div>
                         <h1 className="home-title">Salon</h1>
                         <h1 className="home-title">Search</h1>
-                        <h3 className="subtitle">this is a subheading with text about webiste </h3>
+                        <h3 className="subtitle">Finally all your fav Afro hair salons in one place!</h3>
                         <Link to="/search">
                             <button className="btn-flat">
                                 Search salons now
@@ -97,32 +97,28 @@ const Home = () => {
             </div>
             <h1 className="sub-title left margin-top">Featured Salons</h1>
             <div data-aos="fade-left" className="home-featured-salons-container">
-                <div className="home-featured-salon"></div>
+                <div className="home-featured-salon"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
                 <div className="home-salon-ratings">
                     <h2 className="featured-salon-heading">Elite Hair Lounge London</h2>
-                    <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                        optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+                    <p className="featured-salon-blurb">With locations in Stockwell, Lewisham, and our newest branch Archway in London,
+                        Elite Hair Lounge has stylists dedicated to providing clients with healthy hair.</p>
                     <div className="thumnail-container">
-                        <div className="thumbnail"></div>
-                        <div className="thumbnail"></div>
-                        <div className="thumbnail"></div>
+                        <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
+                        <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
+                        <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
                     </div>
                 </div>
             </div>
             <div data-aos="fade-right" className="home-featured-salons-container">
-                <div className="home-featured-salon"></div>
+                <div className="home-featured-salon"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
                 <div className="home-salon-ratings">
-                    <h2 className="featured-salon-heading">House Of Tinu</h2>
-                    <p className="featured-salon-blurb">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                        optio, eaque rerum! Provident similique accusantium nemo autem.</p>
+                    <h2 className="featured-salon-heading">thecurlbarlondon</h2>
+                    <p className="featured-salon-blurb">THE CURL BAR LONDON IS A SAFE SPACE FOR WOMEN WITH NATURAL HAIR TO FEEL EMBRACED.
+                    </p>
                     <div className="thumnail-container">
-                        <div className="thumbnail"></div>
-                        <div className="thumbnail"></div>
-                        <div className="thumbnail"></div>
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
                     </div>
                 </div>
             </div>

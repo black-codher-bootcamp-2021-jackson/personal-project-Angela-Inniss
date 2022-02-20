@@ -45,11 +45,15 @@ const Search = () => {
     }, [selectedLocation, selectedServices]);
 
     const setLocation = (event) => {
+        console.log("hi");
+        console.log(event);
         const location = event.value
         setSelectedLocation(location);
     }
 
+
     const setServices = (event) => {
+        console.log(event)
         const services = event.map((service) => {
             return service.value
         })

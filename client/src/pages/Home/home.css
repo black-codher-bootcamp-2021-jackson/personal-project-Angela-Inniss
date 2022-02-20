@@ -110,10 +110,20 @@ a {
   width: 200px;
   background: gainsboro;
 }
+.home-featured-salon img {
+  height: 300px;
+  width: 200px;
+}
+
 .thumbnail {
   width: 100px;
   height: 100px;
   background: gainsboro;
+}
+
+.thumbnail img {
+  width: 100px;
+  height: 100px;
 }
 
 .thumnail-container {

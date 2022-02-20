@@ -47,7 +47,8 @@ const SalonCard = (props) => {
             })}</p>
             <p className="salon-description">{props.description}</p>
             <div className="services">{props.services.map((service =>
-                <div>{service}</div>))}</div>
+                <div>{service}</div>))}
+            </div>
         </div >
     )
 }
