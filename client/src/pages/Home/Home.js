@@ -16,21 +16,21 @@ import "./home.css";
 const FeatureCardData = [
     {
         heading: "Braids",
-        subheading: "subheading",
+        subheading: "Be Inpired",
         imageSrc: braids,
         id: "card-one",
         url: "/landing-braids"
     },
     {
         heading: "Natural",
-        subheading: "subheading",
+        subheading: "Be Inpired",
         imageSrc: natural,
         id: "card-two",
         url: "/landing-natural"
     },
     {
         heading: "Weave",
-        subheading: "subheading",
+        subheading: "Be Inpired",
         imageSrc: weave,
         id: "card-three",
         url: "/landing-weave"
@@ -96,6 +96,19 @@ const Home = () => {
                 })}
             </div>
             <h1 className="sub-title left margin-top">Featured Salons</h1>
+            <div data-aos="fade-right" className="home-featured-salons-container">
+                <div className="home-featured-salon"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
+                <div className="home-salon-ratings">
+                    <h2 className="featured-salon-heading">The Curl Bar London</h2>
+                    <p className="featured-salon-blurb">The Curl Bar London is a safe space for women with natural hair to feel embraced.
+                    </p>
+                    <div className="thumnail-container">
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://res.cloudinary.com/dnsof9xnr/image/upload/v1645486218/Screenshot_2022-02-21_at_23.29.24.png" /></div>
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://res.cloudinary.com/dnsof9xnr/image/upload/v1645481279/curlbar.jpg" /></div>
+                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
+                    </div>
+                </div>
+            </div>
             <div data-aos="fade-left" className="home-featured-salons-container">
                 <div className="home-featured-salon"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
                 <div className="home-salon-ratings">
@@ -103,25 +116,13 @@ const Home = () => {
                     <p className="featured-salon-blurb">With locations in Stockwell, Lewisham, and our newest branch Archway in London,
                         Elite Hair Lounge has stylists dedicated to providing clients with healthy hair.</p>
                     <div className="thumnail-container">
-                        <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
-                        <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
+                        <div className="thumbnail"><img src="https://res.cloudinary.com/dnsof9xnr/image/upload/v1645486841/WhatsApp_Image_2022-02-21_at_23.36.53.jpg" alt="elite-girl" /></div>
+                        <div className="thumbnail"><img src="https://res.cloudinary.com/dnsof9xnr/image/upload/v1645486583/ang_braids.jpg" alt="elite-girl" /></div>
                         <div className="thumbnail"><img src="https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/42303770_2140561949493011_9088340060364865536_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeH6DaEy1iyvGBMfHBsNPUCli8hsAmqYcjuLyGwCaphyOw9R3UpyShi8T-mz2b-WAkM&_nc_ohc=OLT79EaRviAAX9_wWey&_nc_ht=scontent-lhr8-1.xx&oh=00_AT-wtedsYlLOh97rj9wpxjcMf2eOpAiOfmV9FCZKAqHVIA&oe=62314EEA" alt="elite-girl" /></div>
                     </div>
                 </div>
             </div>
-            <div data-aos="fade-right" className="home-featured-salons-container">
-                <div className="home-featured-salon"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
-                <div className="home-salon-ratings">
-                    <h2 className="featured-salon-heading">thecurlbarlondon</h2>
-                    <p className="featured-salon-blurb">THE CURL BAR LONDON IS A SAFE SPACE FOR WOMEN WITH NATURAL HAIR TO FEEL EMBRACED.
-                    </p>
-                    <div className="thumnail-container">
-                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
-                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
-                        <div className="thumbnail"><img alt="curlbarsalon" src="https://images.squarespace-cdn.com/content/v1/5dac83bb29c3100c9dc5eed2/1578691509736-1LL1WB30ZPBELR3YA8MC/200102_Nia_Salon_Capture_034.jpg?format=1500w" /></div>
-                    </div>
-                </div>
-            </div>
+
             <div className="footer">
                 <div className="footer-links">
                     <Link className="link-footer" to="">About </Link>
