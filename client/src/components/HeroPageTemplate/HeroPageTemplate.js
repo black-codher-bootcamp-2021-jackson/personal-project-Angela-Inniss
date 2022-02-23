@@ -38,7 +38,7 @@ const HeroPageTemplate = (props) => {
                     <img alt="hairstyle5" src={props.image5} />
                 </div>
                 <div className="inspo-item">
-                    <img alt="hairstyle6" src={props.image6} />
+                    <img height="300" width="300" alt="hairstyle6" src={props.image6} />
                 </div>
             </div>
 
