@@ -18,6 +18,10 @@ const Vote = () => {
         setLike(true);
         setLikeCount(prevState => prevState + 1)
     }
+    const handleClick = () => {
+        console.log("hello")
+       
+    }
     const handleDislikeClick = () => {
         console.log("disliked");
         setDislike(true);

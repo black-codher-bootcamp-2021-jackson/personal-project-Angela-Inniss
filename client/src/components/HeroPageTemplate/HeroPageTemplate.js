@@ -42,7 +42,7 @@ const HeroPageTemplate = (props) => {
                 </div>
             </div>
 
-            <div className="video"></div>
+            <div className="video">{props.video}</div>
 
 
         </>

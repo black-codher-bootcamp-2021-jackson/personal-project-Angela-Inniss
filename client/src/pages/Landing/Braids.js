@@ -11,18 +11,27 @@ import leonieBraids2 from "../../images/LeonieBraids2.jpeg";
 
 
 const Braids = () => {
-    return (<HeroPageTemplate title="Braids"
-        title2="Inspo"
-        subtitle="this is the subtitle"
-        cta="Be Inspired"
-        backgroundImageRight={braidsImage}
-        image1={leonieBraids2}
-        image2={braids3}
-        image3={braids1}
-        image4={cainrow}
-        image5={leonieBraids}
-        image6={braids2}
-    />);
+    return (
+        <>
+            <HeroPageTemplate title="Braids"
+                title2="Inspo"
+                subtitle="this is the subtitle"
+                cta="Be Inspired"
+                backgroundImageRight={braidsImage}
+                image1={leonieBraids2}
+                image2={braids3}
+                image3={braids1}
+                image4={cainrow}
+                image5={leonieBraids}
+                image6={braids2}
+            />
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/eS64yozs10U"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+        </>);
 }
 
 export default Braids;
