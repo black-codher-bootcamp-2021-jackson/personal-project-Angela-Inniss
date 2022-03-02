@@ -13,7 +13,6 @@ import "../../../src/App.css";
 import "../Search/search.css";
 
 
-
 const Search = () => {
     const [salons, setSalons] = useState(null);
     const [selectedLocation, setSelectedLocation] = useState("");
@@ -106,3 +105,4 @@ const Search = () => {
 }
 
 export default Search;
+

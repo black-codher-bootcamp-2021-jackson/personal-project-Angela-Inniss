@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./heroPageTemplate.css";
+import PhotoGallery from "./PhotoGallery";
 
 
 const HeroPageTemplate = (props) => {
@@ -21,6 +22,7 @@ const HeroPageTemplate = (props) => {
                 </div>
             </div>
 
+            {/* 
             <div id="inspo-container" className="inspo-container">
                 <div className="inspo-item">
                     <img alt="hairstyle1" src={props.image1} />
@@ -40,10 +42,10 @@ const HeroPageTemplate = (props) => {
                 <div className="inspo-item">
                     <img alt="hairstyle6" src={props.image6} />
                 </div>
-            </div>
+            </div> */}
 
-            <div className="video">{props.video}</div>
-
+            <div>{props.video}</div>
+            {/* <PhotoGallery /> */}
 
         </>
     )

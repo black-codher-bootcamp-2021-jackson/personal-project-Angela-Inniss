@@ -1,0 +1,17 @@
+.react-photo-gallery--gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.frame-contianer {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.frame-contianer iframe {
+  height: 500px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
