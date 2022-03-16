@@ -143,3 +143,18 @@ const userRoutes = (app) => {
 }
 module.exports = userRoutes;
 // closing bracket shortcut - cmd shift \
+
+// sign up form on FE - post data to api/sign up server response will be a token 
+// save the token response on the FE in local storage
+
+// i.e if i wanted to authenticate a user in order to save a salon to their profile would have to 
+// look up the token in local storage i.e localStorage.get("user")
+
+// grab token and send token in the request with the token in the header? to be authenticated 
+//to CRUD data
+
+
+// forlogged in users - check for token on page load to see if is logged in - (useEffect hook);
+
+
+//how should i handle expired tokens in localStorage 
