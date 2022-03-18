@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { FcLike } from "react-icons/fc";
+// import { FcLike } from "react-icons/fc";
 
 import "./saveToFavourites.css";
 
@@ -19,7 +19,7 @@ const SaveToFavourites = () => {
 
         <div className="heart">
             <button className="heart-button" onClick={(event) => handleSavedHeartClick(event)}>
-                <FcLike className={className} />
+                {/* <FcLike className={className} /> */}
             </button>
         </div>
 

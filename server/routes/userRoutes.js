@@ -158,3 +158,6 @@ module.exports = userRoutes;
 
 
 //how should i handle expired tokens in localStorage 
+
+// sign up will creat a user in db 
+// sign in will hit me endpoint and check to see if there is a user token if there is login if not log out

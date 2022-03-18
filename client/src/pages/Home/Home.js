@@ -12,6 +12,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 import "aos/dist/aos.css";
 import "./home.css";
+import SignUp from "./SignUp";
 
 const FeatureCardData = [
     {
@@ -140,6 +141,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <SignUp/>
 
         </>
     )
