@@ -29,7 +29,6 @@ const SignUp = () => {
       //   setUser(response.);
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
-      
     });
   };
   return (
