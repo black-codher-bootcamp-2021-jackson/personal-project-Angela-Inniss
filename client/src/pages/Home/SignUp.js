@@ -1,4 +1,5 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
+import { createUser } from "../../services/userServices";
 
 import "./signUp.css";
 
@@ -9,15 +10,20 @@ const SignUp = () => {
   //     });
   //   }, []);
   const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleOnSubmit = (e) => {
-      e.preventDefault();
-      console.log("submit");
-       
-  }
+    e.preventDefault();
+    console.log("submit");
+    createUser({
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+    });
+  };
   return (
     <div className="container-signup">
       <h2>Sign Up to Salon Search</h2>
@@ -40,7 +46,7 @@ const SignUp = () => {
             <input
               type="text"
               id="input-username"
-              value={userName}
+              value={username}
               onChange={(e) => setUserName(e.target.value)}
             />
           </div>
@@ -65,7 +71,7 @@ const SignUp = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className="btn-flat">Create Account</button>
+        <button className="btn-flat-signup">Create Account</button>
       </form>
     </div>
   );
