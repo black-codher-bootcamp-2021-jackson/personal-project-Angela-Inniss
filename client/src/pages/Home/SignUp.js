@@ -13,6 +13,7 @@ const SignUp = () => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState("");
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +23,13 @@ const SignUp = () => {
       username: username,
       email: email,
       password: password,
+    }).then((response) => {
+      console.log(response); // this is the token
+      // set the state of the user
+      //   setUser(response.);
+      // store the user in localStorage
+      localStorage.setItem("userToken", response.token);
+      
     });
   };
   return (
