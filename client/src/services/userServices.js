@@ -3,16 +3,27 @@
 import axios from "axios";
 
 const createUser = async (user) => {
-    console.log(user);
+  console.log(user);
 
-    
-  const response = await axios.post(`/api/signup`, { 
+  const response = await axios.post(`/api/signup`, {
     name: user.name,
     username: user.username,
     email: user.email,
-    password: user.password  });
+    password: user.password,
+  });
   return response.data || [];
 };
 
+const signInUser = async (loginDetails) => {
+    console.log(loginDetails);
+  const { email, password } = loginDetails;
+  const response = await axios.post(`/api/login`,{
+      email,
+      password
+  });
+
+  return response.data
+};
+
 // All of the endpoints in this file can be exported below
-export { createUser };
+export { createUser, signInUser};

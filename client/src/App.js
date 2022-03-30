@@ -7,6 +7,8 @@ import Natural from "./pages/Landing/Natural";
 import Relaxed from "./pages/Landing/Relaxed";
 import Weave from "./pages/Landing/Weave";
 import Braids from "./pages/Landing/Braids.js";
+import SignUp from "./pages/Home/SignUp";
+import SignIn from "./pages/Home/SignIn";
 
 const App = () => {
 
@@ -15,6 +17,8 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/search' element={<Search />} />
+        <Route exact path='/signup' element={<SignUp />} />
+        <Route exact path='/signin' element={<SignIn />} />
         <Route exact path='/landing-curly' element={<Curly />} />
         <Route exact path='/landing-natural' element={<Natural />} />
         <Route exact path='/landing-relaxed' element={<Relaxed />} />
