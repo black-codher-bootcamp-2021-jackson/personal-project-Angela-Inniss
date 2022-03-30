@@ -6,15 +6,16 @@ body {
   height: 100%;
 }
 
-.page-container {
+.signup-page {
   display: flex;
   height: 100%;
 }
 
-.container-right {
+.container-signup {
   width: 100%;
   max-width: 416px;
   margin: auto;
+  margin-top: 50px;
 }
 
 .container-left {
@@ -135,7 +136,7 @@ label {
     width: 200px;
     margin: 0 auto;
   }
-
+  
   .signup-title {
     margin-bottom: 30px;
   }
