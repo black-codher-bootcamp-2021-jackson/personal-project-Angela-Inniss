@@ -24,10 +24,10 @@ const userRoutes = (app) => {
       }),
     ],
     async (req, res) => {
-      console.log(req.body.name);
-      console.log(req.body.username);
-      console.log(req.body.email);
-      console.log(req.body.password);
+      // console.log(req.body.name);
+      // console.log(req.body.username);
+      // console.log(req.body.email);
+      // console.log(req.body.password);
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({
@@ -36,10 +36,10 @@ const userRoutes = (app) => {
       }
 
       const { username, email, password, name } = req.body;
-      console.log(name);
-      console.log(username);
-      console.log(email);
-      console.log(password);
+      // console.log(name);
+      // console.log(username);
+      // console.log(email);
+      // console.log(password);
 
       try {
         let user = await User.findOne({
@@ -75,11 +75,15 @@ const userRoutes = (app) => {
           {
             expiresIn: 10000,
           },
+       
           (err, token) => {
             if (err) throw err;
+            res.cookie('token', token, { httpOnly: true }); // setting a cookie?
             res.status(200).json({
               token,
             });
+           
+      
           }
         );
       } catch (err) {
@@ -88,6 +92,12 @@ const userRoutes = (app) => {
       }
     }
   );
+
+  // app.get('/jwt', (req, res) => {
+  //   const token = jsonwebtoken.sign({ user: 'johndoe' }, jwtSecret);
+  //   res.cookie('token', token, { httpOnly: true });
+  //   res.json({ token });
+  // });
 
   app.post(
     "/api/login",

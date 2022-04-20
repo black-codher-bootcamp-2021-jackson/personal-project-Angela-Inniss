@@ -31,7 +31,7 @@ const SignIn = () => {
         <h2 className="heading-signup"> Sign into Salon Search</h2>
 
         <h3 className="subheading-signup input-family">
-          <input type="text" id="" value="" placeholder="Google sign up" />
+          <input type="text" id="" value="" placeholder="Google sign in" />
         </h3>
         <p className="divider"></p>
         <form onSubmit={handleOnSubmit}>

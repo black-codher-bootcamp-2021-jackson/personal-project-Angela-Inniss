@@ -21,7 +21,6 @@ a {
 }
 
 .container {
-  /* border: 2px solid red; */
   display: flex;
   height: 650px;
   font-family: "Lilita One", cursive;
@@ -32,6 +31,7 @@ a {
   line-height: 0.2;
   color: #433532;
 }
+
 .subtitle {
   font-family: "Inter", sans-serif;
   color: #433532;
@@ -57,6 +57,7 @@ a {
   justify-content: center;
   align-items: center;
 }
+
 .homepage-girl {
   height: 440px;
   width: 300px;
@@ -95,6 +96,7 @@ a {
   /* justify-content: center; */
   align-items: center;
 }
+
 .left {
   text-align: left;
   margin-left: 50px;
@@ -108,6 +110,7 @@ a {
   justify-content: space-around;
   margin-bottom: 30px;
 }
+
 .home-salon-ratings {
   max-width: 715px;
   width: 50%;
@@ -155,6 +158,7 @@ a {
   justify-content: center;
   font-family: "Lilita One", cursive;
 }
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -166,6 +170,7 @@ a {
   margin: 20px;
   text-decoration: none;
 }
+
 .social-links h3 {
   margin: unset;
   font-family: "Lilita One", cursive;
@@ -194,15 +199,13 @@ a {
   .nav-item {
     margin: 10px;
   }
-  /* .nav-section {
-    display: flex;
-    align-items: center;
-  } */
+  
   .nav-section:first-child {
     display: block;
     align-items: center;
     display:flex;
   }
+
   .navbar {
     /* outline: 2px solid red; */
     display: flex;
@@ -215,9 +218,11 @@ a {
     justify-content: center;
     align-items: center;
   }
+
   #card-one {
     margin-top: 17%;
   }
+  
   #card-three {
     margin-bottom: 17%;
   }

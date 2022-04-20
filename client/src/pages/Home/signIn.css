@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
 }
+
 #root {
   height: 100%;
 }
@@ -25,6 +26,7 @@ body {
 .logo-signup {
   margin-bottom: 30px;
 }
+
 .heading-signup {
   margin-bottom: 20px;
 }
@@ -83,14 +85,6 @@ input {
   padding-left: 40px;
 }
 
-/* .input-family {
-  margin: 10px;
-} */
-
-/* .signUp-button{
-
-} */
-
 .btn-flat-signup {
   padding: 15px 24px;
   border-radius: 4px;
@@ -100,7 +94,6 @@ input {
   color: whitesmoke;
   /* box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset; */
   font-family: inherit;
-
   width: 100%;
   background: #433532;
 }
