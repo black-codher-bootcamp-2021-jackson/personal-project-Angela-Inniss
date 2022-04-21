@@ -20,10 +20,15 @@ mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
 app.use(bodyParser.json());
 
 // IMPORT YOUR API ROUTES HERE
-// Below is just an example. Don't forget to delete it. 
-// It's importing and using everything from the salonRoutes.js file and also passing app as a parameter for profileRoutes to use
-require("./routes/salonsRoutes")(app);
-require("./routes/userRoutes")(app);
+
+// Import all routing functions
+const salonsRoutes = require("./routes/salonsRoutes");
+const userRoutes = require("./routes/userRoutes");
+const favouriteRoutes = require("./routes/favouriteRoutes");
+// calll the routing functions in relation to express app (line 10)
+salonsRoutes(app);
+userRoutes(app);
+favouriteRoutes(app);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
