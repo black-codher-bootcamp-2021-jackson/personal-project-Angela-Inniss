@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 // IMPORT YOUR SCHEMAS HERE
 require("./models/salon"); //This is just an example. Don't forget to delete this
-
+require("./models/favourite");
 const app = express();
 
 // This is where your API is making its initial connection to the database
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 // Import all routing functions
 const salonsRoutes = require("./routes/salonsRoutes");
 const userRoutes = require("./routes/userRoutes");
-const favouriteRoutes = require("./routes/favouriteRoutes");
+const favouriteRoutes = require("./routes/favouritesRoutes"); //isseu here
 // calll the routing functions in relation to express app (line 10)
 salonsRoutes(app);
 userRoutes(app);

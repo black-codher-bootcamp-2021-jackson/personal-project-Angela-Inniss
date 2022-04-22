@@ -1,6 +1,7 @@
 // Filename : user.js
 
-const { check, validationResult } = require("express-validator/check"); // middleware
+// const { check, validationResult } = require("express-validator/check"); // middleware
+const { check, validationResult } = require("express-validator"); // middleware
 const bcrypt = require("bcryptjs"); // encryption tool for passwords translates it to a encrypted string
 const jwt = require("jsonwebtoken"); // identifier for a user? :S
 
@@ -14,6 +15,7 @@ const User = require("../models/user");
 
 // check = middleware
 const userRoutes = (app) => {
+
   app.post(
     "/api/signup",
     [
@@ -36,11 +38,6 @@ const userRoutes = (app) => {
       }
 
       const { username, email, password, name } = req.body;
-      // console.log(name);
-      // console.log(username);
-      // console.log(email);
-      // console.log(password);
-
       try {
         let user = await User.findOne({
           email,
@@ -68,6 +65,7 @@ const userRoutes = (app) => {
             id: user.id,
           },
         };
+        console.log(payload);
 
         jwt.sign(
           payload,
@@ -78,7 +76,7 @@ const userRoutes = (app) => {
        
           (err, token) => {
             if (err) throw err;
-            res.cookie('token', token, { httpOnly: true }); // setting a cookie?
+            // res.cookie('token', token, { httpOnly: true }); // setting a cookie?
             res.status(200).json({
               token,
             });
@@ -92,12 +90,6 @@ const userRoutes = (app) => {
       }
     }
   );
-
-  // app.get('/jwt', (req, res) => {
-  //   const token = jsonwebtoken.sign({ user: 'johndoe' }, jwtSecret);
-  //   res.cookie('token', token, { httpOnly: true });
-  //   res.json({ token });
-  // });
 
   app.post(
     "/api/login",
@@ -147,10 +139,13 @@ const userRoutes = (app) => {
           (err, token) => {
             if (err) throw err;
             res.status(200).json({
-              token
+              token,
+              payload
             });
           }
         );
+
+
       } catch (e) {
         console.error(e);
         res.status(500).json({
@@ -159,6 +154,24 @@ const userRoutes = (app) => {
       }
     }
   );
+
+
+
+  app.get('/api/getUserId', async (req, res) => {
+    // get user id here 
+    // console.log(req);
+    // console.log(req.user);
+       
+       const userId = await User.find({ 'email': 'linds@gmail.com' });;
+    
+       res.send(userId);
+      //  const userId = await User.findOne({_id: user._id});
+      //  console.log(userId)
+     
+      //  return res.status(200).send(userId);
+      });
+    
+
 
 }
 module.exports = userRoutes;

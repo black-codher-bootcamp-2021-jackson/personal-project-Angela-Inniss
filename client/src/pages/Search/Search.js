@@ -15,6 +15,7 @@ import "../Search/search.css";
 
 const Search = () => {
     const [salons, setSalons] = useState(null);
+    console.log(salons);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
@@ -42,6 +43,23 @@ const Search = () => {
         }
         filter();
     }, [selectedLocation, selectedServices]);
+
+    // const userId = 
+
+    const getSalonIsFavourite = (salonId) => {
+     // check if there is entry in favourites table that has salonId and UserId
+     // need to get logged in user as a prop from home - will be an user object from DB
+       
+    };
+
+    const setSalonAsFavourite = (isFavourite, salonId) => {
+    // this needs to update DB if isFavourite ? add to DB : remove from DB
+    // add / remove userId and salonID OBJECT from the favourites table in the DB.
+
+    };
+
+    // user id will be a global variable that i'll fetch from the DB on page load - logic will be done on Homepage
+
 
     const setLocation = (event) => {
         console.log("hi");
@@ -93,6 +111,9 @@ const Search = () => {
                                 facebookLink={salon.facebook}
                                 instagramLink={salon.instagram}
                                 twitterLink={salon.twitter}
+                                salonIsFavourite={getSalonIsFavourite(salon._id)}
+                                salonId={salon._id}
+                    
 
                             />)
                     ) : (

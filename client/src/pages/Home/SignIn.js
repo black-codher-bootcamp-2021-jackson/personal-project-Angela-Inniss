@@ -6,6 +6,7 @@ import "./signUp.css";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(null);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +20,9 @@ const SignIn = () => {
       //   setUser(response.);
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
+      // get user id here and store in some state somewhere globally and then use it to pass into the getuserid state
+      // set the user id to redux store - response response.data.payload.user
+      setUserId(response.payload.user.id);
     });
   };
   return (
@@ -53,6 +57,7 @@ const SignIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {userId}
           </div>
           <button className="btn-flat-signup">Sign In</button>
         </form>

@@ -7,13 +7,14 @@ import braids from "../../images/girl3.jpg";
 import weave from "../../images/girl4.jpg";
 import natural from "../../images/girl5.jpg";
 
+import { getUserId } from "../../services/userServices";
+
 import { Link } from "react-router-dom";
 
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import {BiSearchAlt2}  from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi";
 
 import "aos/dist/aos.css";
-
 import "./home.css";
 
 const FeatureCardData = [
@@ -41,9 +42,17 @@ const FeatureCardData = [
 ];
 
 const Home = () => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
-  console.log(userLoggedIn);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null); // this is the user objet from the DB
+  // console.log(isUserLoggedIn);
   const [loggedInUsername, setLoggedInUsername] = useState("");
+
+  const getLoggedInUser = async () => {
+    // const getUser = async () => {
+    const response = await getUserId();
+    // console.log(response);
+    // };
+  };
 
   useEffect(() => {
     AOS.init({
@@ -52,10 +61,15 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    const user = localStorage.getItem("userToken");
-    console.log(user);
-    if (user) {
-      setUserLoggedIn(true);
+    console.log("home useeffect");
+
+    // get user id
+    const user = getLoggedInUser();
+
+    console.log("user response", user);
+    const userSessionToken = localStorage.getItem("userToken");
+    if (userSessionToken) {
+      setIsUserLoggedIn(true);
     }
   }, []);
 
@@ -76,14 +90,14 @@ const Home = () => {
         </div>
         <div className="nav-section">
           <Link to="/search">
-            <div className="nav-item"><BiSearchAlt2/></div>
+            <div className="nav-item">
+              <BiSearchAlt2 />
+            </div>
           </Link>
           <Link to="/signup">
             <div className="nav-item">Sign up</div>
           </Link>
-          <div>/ 
-
-          </div>
+          <div>/</div>
           <Link to="/signin">
             <div className="nav-item">Sign in</div>
           </Link>
@@ -97,7 +111,7 @@ const Home = () => {
             <h3 className="subtitle">
               Finally all your fav Afro hair salons in one place!
             </h3>
-            {userLoggedIn ? (
+            {isUserLoggedIn ? (
               <Link to="/search">
                 <button className="btn-flat">Search salons now</button>
               </Link>
@@ -121,7 +135,7 @@ const Home = () => {
       <div className="home-feature-cards-container">
         {FeatureCardData.map((data) => {
           const { heading, subheading, imageSrc, id, url } = data;
-          console.log(heading, subheading, imageSrc);
+          // console.log(heading, subheading, imageSrc);
           return (
             <FeatureCard
               heading={heading}

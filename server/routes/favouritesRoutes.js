@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Favourite = mongoose.model("favourites");
-
 // GET all favourites
 const favouriteRoutes = (app) => {
   app.get(`/api/favourite`, async (req, res) => {
