@@ -15,12 +15,11 @@ import "../Search/search.css";
 
 const Search = () => {
     const [salons, setSalons] = useState(null);
-    // console.log(salons);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
     useEffect(() => {
-        // console.log("hello")
+        console.log("hello")
         async function getSalons() {
             if (!salons) {
                 const response = await getAllSalons();
@@ -44,23 +43,8 @@ const Search = () => {
         filter();
     }, [selectedLocation, selectedServices]);
 
-    // const userId = props.userId or select user id redux
-
-    const getSalonIsFavourite = (salonId) => {
-        console.log(salonId);
-     // check if there is entry in favourites table that has salonId and UserId
-     // need to get logged in user as a prop from home - will be an user object from DB
-       
-    };
-
-    const setSalonAsFavourite = (isFavourite, salonId) => {
-    // this needs to update DB if isFavourite ? add to DB : remove from DB
-    // add / remove userId and salonID OBJECT from the favourites table in the DB.
-
-    };
-
-
     const setLocation = (event) => {
+        console.log("hi");
         console.log(event);
         const location = event.value
         setSelectedLocation(location);
@@ -109,9 +93,7 @@ const Search = () => {
                                 facebookLink={salon.facebook}
                                 instagramLink={salon.instagram}
                                 twitterLink={salon.twitter}
-                                salonIsFavourite={getSalonIsFavourite(salon._id)}
-                                salonId={salon._id}
-                                key={salon._id}
+
                             />)
                     ) : (
                         <p>No salons found</p>

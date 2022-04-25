@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 
 // IMPORT YOUR SCHEMAS HERE
 require("./models/salon"); //This is just an example. Don't forget to delete this
-require("./models/favourite");
+
 const app = express();
 
 // This is where your API is making its initial connection to the database
@@ -20,15 +20,9 @@ mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
 app.use(bodyParser.json());
 
 // IMPORT YOUR API ROUTES HERE
-
-// Import all routing functions
-const salonsRoutes = require("./routes/salonsRoutes");
-const userRoutes = require("./routes/userRoutes");
-const favouriteRoutes = require("./routes/favouritesRoutes"); //isseu here
-// calll the routing functions in relation to express app (line 10)
-salonsRoutes(app);
-userRoutes(app);
-favouriteRoutes(app);
+// Below is just an example. Don't forget to delete it. 
+// It's importing and using everything from the salonRoutes.js file and also passing app as a parameter for profileRoutes to use
+require("./routes/salonsRoutes")(app);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
