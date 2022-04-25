@@ -4,9 +4,7 @@ const Salon = mongoose.model("salons");
 // GET all salons
 const salonRoutes = (app) => {
   app.get(`/api/salon`, async (req, res) => {
-    console.log("salon route");
     const salons = await Salon.find();
-    console.log(salons);
     return res.status(200).send(salons);
   });
 
@@ -25,8 +23,6 @@ const salonRoutes = (app) => {
     const response = await Salon.find({ location: location });
     return res.status(200).send(response);
   })
-
-
 
 };
 
