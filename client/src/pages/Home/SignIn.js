@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { signInUser } from "../../services/userServices";
 import braidsImage from "../../images/girl3.jpg";
+
 import "./signUp.css";
 
 const SignIn = () => {
@@ -15,14 +16,13 @@ const SignIn = () => {
       email: email,
       password: password,
     }).then((response) => {
-      console.log(response); // this is the token
-      // set the state of the user
-      //   setUser(response.);
+      // console.log(response); // this is the token
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
       // get user id here and store in some state somewhere globally and then use it to pass into the getuserid state
       // set the user id to redux store - response response.data.payload.user
-      setUserId(response.payload.user.id);
+      setUserId(response.payload.user.id); // set this in teh redux store SIMPLES OMG!
+
     });
   };
   return (

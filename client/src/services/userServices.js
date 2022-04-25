@@ -15,21 +15,20 @@ const createUser = async (user) => {
 };
 
 const signInUser = async (loginDetails) => {
-    console.log(loginDetails);
   const { email, password } = loginDetails;
   const response = await axios.post(`/api/login`,{
       email,
       password
   });
 
-  console.log(response.data.payload.user); // has the id in it
+  // console.log(response.data.payload.user); // has the id in it
 
   return response.data
 };
 
 const getUserId = async () => {
   const response = await axios.get(`/api/getUserId`);
-console.log(response);
+  return response.data[0]._id;
 }
 
 // All of the endpoints in this file can be exported below

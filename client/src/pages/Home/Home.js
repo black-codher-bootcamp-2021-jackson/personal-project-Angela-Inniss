@@ -7,7 +7,7 @@ import braids from "../../images/girl3.jpg";
 import weave from "../../images/girl4.jpg";
 import natural from "../../images/girl5.jpg";
 
-import { getUserId } from "../../services/userServices";
+// import { getUserId } from "../../services/userServices";
 
 import { Link } from "react-router-dom";
 
@@ -41,38 +41,14 @@ const FeatureCardData = [
   },
 ];
 
-const Home = () => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null); // this is the user objet from the DB
-  // console.log(isUserLoggedIn);
+const Home = (props) => {
   const [loggedInUsername, setLoggedInUsername] = useState("");
-
-  const getLoggedInUser = async () => {
-    // const getUser = async () => {
-    const response = await getUserId();
-    // console.log(response);
-    // };
-  };
-
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
   }, []);
-
-  useEffect(() => {
-    console.log("home useeffect");
-
-    // get user id
-    const user = getLoggedInUser();
-
-    console.log("user response", user);
-    const userSessionToken = localStorage.getItem("userToken");
-    if (userSessionToken) {
-      setIsUserLoggedIn(true);
-    }
-  }, []);
-
+  
   return (
     <>
       <nav className="navbar">
@@ -111,7 +87,7 @@ const Home = () => {
             <h3 className="subtitle">
               Finally all your fav Afro hair salons in one place!
             </h3>
-            {isUserLoggedIn ? (
+            {props.isUserLoggedIn ? (
               <Link to="/search">
                 <button className="btn-flat">Search salons now</button>
               </Link>
