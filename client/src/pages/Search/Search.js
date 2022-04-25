@@ -44,7 +44,7 @@ const Search = () => {
         filter();
     }, [selectedLocation, selectedServices]);
 
-    // const userId = props.userId or select user id redux
+    // const userId = props.userId or select user id redux  can import user id from redux store when set up
 
     const getSalonIsFavourite = (salonId) => {
         console.log(salonId);
