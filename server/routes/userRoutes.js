@@ -140,7 +140,7 @@ const userRoutes = (app) => {
             if (err) throw err;
             res.status(200).json({
               token,
-              payload
+              payload // passing in the id created for the user when they sign in, pass this back tothe front end! so we can pass it back when getting user
             });
           }
         );
