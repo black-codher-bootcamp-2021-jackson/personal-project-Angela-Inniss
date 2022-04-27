@@ -1,28 +1,45 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setEmail, setUserId } from "../../features/user/userSlice";
+
 import { signInUser } from "../../services/userServices";
 import braidsImage from "../../images/girl3.jpg";
 
 import "./signUp.css";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+  // const [email, setEmail] = useState("");
+
+  // selectors
+  const userEmail = useSelector((state) => state.user.email);
+  const userId = useSelector((state) => state.user.userId);
+
   const [password, setPassword] = useState("");
-  const [userId, setUserId] = useState(null);
+
+ // store actions
+  const onSetUserEmail = (value) => {
+    dispatch(setEmail(value));
+  };
+
+  const getUserId = (value) => {
+    dispatch(setUserId(value))
+  }
+
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
     signInUser({
-      email: email,
+      email: userEmail,
       password: password,
     }).then((response) => {
-      // console.log(response); // this is the token
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
+      console.log(response.payload);
       // get user id here and store in some state somewhere globally and then use it to pass into the getuserid state
-      // set the user id to redux store - response response.data.payload.user
-      setUserId(response.payload.user.id); // set this in teh redux store SIMPLES OMG!
-
+      // set the user id to redux store userId
+      getUserId(response.payload.user.id); // setting userId in redux store
     });
   };
   return (
@@ -44,8 +61,8 @@ const SignIn = () => {
             <input
               type="text"
               id="input-email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={userEmail}
+              onChange={(e) => onSetUserEmail(e.target.value)}
             />
           </div>
 
@@ -57,7 +74,7 @@ const SignIn = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {userId}
+            {/* {userId} */}
           </div>
           <button className="btn-flat-signup">Sign In</button>
         </form>
