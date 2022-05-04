@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector} from "react-redux";
 import SelectDropDownFilter from "../../components/SelectDropdown/SelectDropdown";
 import SalonCard from "../../components/SalonCard/SalonCard";
 import salon from "../../images/girl1.jpg";
@@ -13,14 +14,12 @@ import "../../../src/App.css";
 import "../Search/search.css";
 
 
-const Search = () => {
+const Search = (props) => {
     const [salons, setSalons] = useState(null);
-    // console.log(salons);
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedServices, setSelectedServices] = useState([]);
 
     useEffect(() => {
-        // console.log("hello")
         async function getSalons() {
             if (!salons) {
                 const response = await getAllSalons();
@@ -45,7 +44,10 @@ const Search = () => {
     }, [selectedLocation, selectedServices]);
 
     // const userId = props.userId or select user id redux  can import user id from redux store when set up
-
+    const userId = useSelector((state => state.user.userId));
+    console.log(userId);
+   
+    
     const getSalonIsFavourite = (salonId) => {
         console.log(salonId);
      // check if there is entry in favourites table that has salonId and UserId
@@ -56,7 +58,6 @@ const Search = () => {
     const setSalonAsFavourite = (isFavourite, salonId) => {
     // this needs to update DB if isFavourite ? add to DB : remove from DB
     // add / remove userId and salonID OBJECT from the favourites table in the DB.
-
     };
 
 
@@ -112,6 +113,7 @@ const Search = () => {
                                 salonIsFavourite={getSalonIsFavourite(salon._id)}
                                 salonId={salon._id}
                                 key={salon._id}
+                                isUserLoggedIn={props.isUserLoggedIn}
                             />)
                     ) : (
                         <p>No salons found</p>

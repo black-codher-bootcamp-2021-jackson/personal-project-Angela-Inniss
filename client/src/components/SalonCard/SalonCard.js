@@ -15,10 +15,11 @@ const socials = [
 const SalonCard = (props) => {
   return (
     <div className="card-container">
-      <SaveToFavourites
+      {props.isUserLoggedIn && <SaveToFavourites
         salonIsFavourite={props.salonIsFavourite}
         salonId={props.salonId}
-      />
+      />}
+     
       <img
         alt="salon"
         className="salon-image"

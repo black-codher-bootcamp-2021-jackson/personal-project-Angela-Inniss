@@ -156,15 +156,15 @@ const userRoutes = (app) => {
   );
 
 
-
   app.get('/api/getUserId', async (req, res) => {
     // get user id here 
-    // console.log(req);
+    const { email } = req.query; 
     // console.log(req.user);
+    console.log("hello",email);
        
-       const userId = await User.find({ 'email': 'linds@gmail.com' });;
+       const userId = await User.find({email: email});
     
-       res.send(userId);
+       res.status(200).send(userId);
       //  const userId = await User.findOne({_id: user._id});
       //  console.log(userId)
      

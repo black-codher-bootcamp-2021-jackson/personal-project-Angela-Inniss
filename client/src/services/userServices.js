@@ -26,8 +26,11 @@ const signInUser = async (loginDetails) => {
   return response.data
 };
 
-const getUserId = async () => {
-  const response = await axios.get(`/api/getUserId`);
+const getUserId = async (userEmail) => {
+  console.log(userEmail);
+  const response = await axios.get(`/api/getUserId`, {params: {email: userEmail}});
+  console.log("inside service",response);
+  console.log("inside service",response.data[0]._id);
   return response.data[0]._id;
 }
 
