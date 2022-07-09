@@ -18,13 +18,15 @@ export const userSlice = createSlice({
     setUserId: (state, action) => {
       state.userId = action.payload;
     },
-    userIsLoggedIn: (state) => {
-      state.userLoggedIn = true
+    userIsLoggedIn: (state,action) => {
+      console.log("in slice",action.payload)
+      state.userLoggedIn = action.payload;
     }
   },
 });
 
 // Action creators are generated for each case reducer function
 export const { setEmail, setUserId, userIsLoggedIn } = userSlice.actions;
+
 
 export default userSlice.reducer;
