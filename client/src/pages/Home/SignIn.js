@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
-import { setEmail, setUserId, userIsLoggedIn } from "../../features/user/userSlice";
+import {
+  setEmail,
+  setUserId,
+  userIsLoggedIn,
+  user,
+} from "../../features/user/userSlice";
 import { signInUser } from "../../services/userServices";
 import braidsImage from "../../images/girl3.jpg";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 import "./signUp.css";
 
-const SignIn = () => {
+const SignIn = (props) => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
 
   // selectors
@@ -15,17 +23,20 @@ const SignIn = () => {
 
   const [password, setPassword] = useState("");
 
- // store actions
+  const isUserSignedIn = useSelector((state) => state.user.userLoggedIn);
+  console.log(isUserSignedIn);
+
+  // store actions
   const onSetUserEmail = (value) => {
     dispatch(setEmail(value));
   };
 
   const setUserIdToStore = (value) => {
-    dispatch(setUserId(value))
-  }
+    dispatch(setUserId(value));
+  };
   const setUserIsLoggedIn = (value) => {
-    dispatch(userIsLoggedIn(value))
-  }
+    dispatch(userIsLoggedIn(value));
+  };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -34,16 +45,20 @@ const SignIn = () => {
       email: userEmail,
       password: password,
     }).then((response) => {
-
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
       // console.log(response.payload);
       // get user id here and store in some state somewhere globally and then use it to pass into the getuserid state
       // set the user id to redux store userId
-    setUserIdToStore(response.payload.user.id); // setting userId in redux store
-    setUserIsLoggedIn(true);
+      setUserIdToStore(response.payload.user.id); // setting userId in redux store
+      setUserIsLoggedIn(true);
     });
   };
+
+  if (isUserSignedIn) {
+    navigate("/");
+  }
+
   return (
     <div className="page-container">
       <div className="container-left">
