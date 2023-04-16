@@ -6,20 +6,15 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 import SaveToFavourites from "../LikeButtonCounter/SaveToFavourites";
 
-const socials = [
-  { facebook: "www.facebook.com/snippers" },
-  { instagram: "www.instagram.com/snippers" },
-  { twitter: "www.twitter.com/snippers" },
-];
-
 const SalonCard = (props) => {
   return (
     <div className="card-container">
       {props.isUserLoggedIn && <SaveToFavourites
-        salonIsFavourite={props.salonIsFavourite}
-        salonId={props.salonId}
+        salonIsFavourite={props.setSalonIsFavourite}
+        salonIsFav={props.salonIsFav}
+        salonId={props.salonId} // set salon id maybe
+        setSavedSalon={props.setSavedSalon}
       />}
-     
       <img
         alt="salon"
         className="salon-image"
@@ -35,7 +30,7 @@ const SalonCard = (props) => {
           if (social.facebook) {
             return (
               <>
-                <a key={index} href={props.facebookLink}>
+                <a key={`${index}-facebook`}href={props.facebookLink}>
                   <FaFacebook />
                 </a>
               </>
@@ -45,7 +40,7 @@ const SalonCard = (props) => {
             return (
               <>
                 {/* <a href={props.socialicon}>Instagram</a> */}
-                <a href={props.instagramLink}>
+                <a key={`${index}-insta`} href={props.instagramLink}>
                   <FaInstagram />
                 </a>
               </>
@@ -55,24 +50,24 @@ const SalonCard = (props) => {
             return (
               <>
                 {/* <a href={props.socialicon}>twitter</a> */}
-                <a href={props.twitterLink}>
+                <a key={`${index}-twitter`} href={props.twitterLink}>
                   <FaTwitter />
                 </a>
               </>
             );
           }
-        })}
+          return null;
+         } 
+       )}
+
       </p>
       <p className="salon-description">{props.description}</p>
       <div className="services">
-        {props.services.map((service) => (
-          <div>{service}</div>
+        {props.services.map((service, index) => (
+          <div key={`${index}-${service}`}>{service}</div>
         ))}
       </div>
     </div>
   );
 };
 export default SalonCard;
-
-// TODO
-// only show heart if user is logged in

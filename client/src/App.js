@@ -15,7 +15,8 @@ import { getUserId } from "./services/userServices";
 
 const App = () => {
   // const userId = useSelector((state) => state.user.userId);
-  const loggedIn = useSelector((state) => state.user.userLoggedIn);
+  // const loggedIn = useSelector((state) => state.user.userLoggedIn);
+  const loggedIn = true;
   const userEmail = useSelector((state) => state.user.email);
 
   const getLoggedInUserId = async (userEmail) => {
@@ -27,7 +28,7 @@ const App = () => {
     const userSessionToken = localStorage.getItem("userToken");
 
     if (loggedIn && userSessionToken) {
-      // get user id  by sending user email??
+      // get user id  by sending user email
       getLoggedInUserId(userEmail); // need to send some email address here to the api / or can select direct from redux store on salon page
       return;
     }

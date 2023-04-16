@@ -3,13 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setEmail,
   setUserId,
-  userIsLoggedIn,
-  user,
+  userIsLoggedIn
 } from "../../features/user/userSlice";
+
 import { signInUser } from "../../services/userServices";
 import braidsImage from "../../images/girl3.jpg";
-import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 
 import "./signUp.css";
@@ -24,7 +22,8 @@ const SignIn = (props) => {
   const [password, setPassword] = useState("");
 
   const isUserSignedIn = useSelector((state) => state.user.userLoggedIn);
-  console.log(isUserSignedIn);
+  // const isUserSignedIn = true;
+  console.log("isUserSignedIn", isUserSignedIn);
 
   // store actions
   const onSetUserEmail = (value) => {

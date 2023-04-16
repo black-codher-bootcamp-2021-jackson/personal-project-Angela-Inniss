@@ -27,10 +27,10 @@ const signInUser = async (loginDetails) => {
 };
 
 const getUserId = async (userEmail) => {
-  console.log(userEmail);
+  // console.log(userEmail);
   const response = await axios.get(`/api/getUserId`, {params: {email: userEmail}});
-  console.log("inside service",response);
-  console.log("inside service",response.data[0]._id);
+  // console.log("inside service",response);
+  // console.log("inside service",response.data[0]._id);
   return response.data[0]._id;
 }
 

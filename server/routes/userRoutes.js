@@ -132,7 +132,7 @@ const userRoutes = (app) => {
 
         jwt.sign(
           payload,
-          "randomString",
+          "randomString", //  update and store in .env file add it to gitignore
           {
             expiresIn: 3600
           },
@@ -158,17 +158,11 @@ const userRoutes = (app) => {
 
   app.get('/api/getUserId', async (req, res) => {
     // get user id here 
-    const { email } = req.query; 
-    // console.log(req.user);
-    console.log("hello",email);
-       
+    const { email } = req.query;     
        const userId = await User.find({email: email});
     
        res.status(200).send(userId);
       //  const userId = await User.findOne({_id: user._id});
-      //  console.log(userId)
-     
-      //  return res.status(200).send(userId);
       });
     
 

@@ -8,12 +8,13 @@ const getAllSalons = async () => {
 };
 
 const filterSalons = async (filteredData) => {
-  console.log(filteredData);
+console.log("filtered Data", filteredData);
   const params = {
     location: filteredData.location,
     services: filteredData.services
   }
   const response = await axios.get(`/api/salons/filter`, { params: params });
+  // console.log(response);
   return response.data || [];
 
 }

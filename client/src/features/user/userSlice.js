@@ -19,7 +19,6 @@ export const userSlice = createSlice({
       state.userId = action.payload;
     },
     userIsLoggedIn: (state,action) => {
-      console.log("in slice",action.payload)
       state.userLoggedIn = action.payload;
     }
   },
