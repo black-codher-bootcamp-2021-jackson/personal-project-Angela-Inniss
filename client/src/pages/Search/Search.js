@@ -139,7 +139,7 @@ const Search = (props) => {
                 setSalonIsFavourite={() => {}}
                 salonIsFav={favourites?.find(favourite => favourite.salon_id === salon._id)}
                 salonId={salon._id}
-                //  setSavedSalon={() => setSavedSalon(salon._id)}
+                 setSavedSalon={() => setSavedSalon(salon._id)}
                 key={salon._id}
                 isUserLoggedIn={props.isUserLoggedIn}
               />
