@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setEmail,
@@ -54,9 +54,16 @@ const SignIn = (props) => {
     });
   };
 
-  if (isUserSignedIn) {
-    navigate("/");
-  }
+   // added useEffect around this so that it only navigates to the home if user is signed in 
+  // AFTER the Sign In page has rendered to the screen,
+  // this fixed warning error about "cannot update component while rendering another component.
+  useEffect(() => {
+    if (isUserSignedIn) {
+      navigate("/");
+    }
+  },[isUserSignedIn]); 
+ 
+ 
 
   return (
     <div className="page-container">
