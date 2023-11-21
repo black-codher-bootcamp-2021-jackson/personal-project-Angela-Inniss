@@ -15,11 +15,11 @@ import { getUserId } from "./services/userServices";
 
 const App = () => {
   // const userId = useSelector((state) => state.user.userId);
-  // const loggedIn = useSelector((state) => state.user.userLoggedIn);
-  const loggedIn = true;
+  const loggedIn = useSelector((state) => state.user.userLoggedIn);
   const userEmail = useSelector((state) => state.user.email);
 
   const getLoggedInUserId = async (userEmail) => {
+
     const response = await getUserId(userEmail);
     return response;
   };
@@ -33,7 +33,7 @@ const App = () => {
       return;
     }
     return console.log("user not found or logged in");
-  }, []);
+  }, [loggedIn]); // added dependency to fix error could not read response.data[0]._id in userService file
 
   // when the app opens send request to see if there is a logged in user
   return (
