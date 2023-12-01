@@ -41,6 +41,10 @@ const salonSchema = new Schema({
   social: {
     type: [String],
     required: false
+  },
+  isFavourite: {
+    type: Boolean,
+    default: false
   }
   // priceRange: {
   //   type: Number,

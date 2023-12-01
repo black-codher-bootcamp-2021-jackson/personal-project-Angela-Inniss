@@ -5,6 +5,7 @@ export const userSlice = createSlice({
   initialState: {
     email: "",
     userId: "",
+    userLoggedIn: false
   },
   reducers: {
     setEmail: (state, action) => {
@@ -17,10 +18,14 @@ export const userSlice = createSlice({
     setUserId: (state, action) => {
       state.userId = action.payload;
     },
+    userIsLoggedIn: (state,action) => {
+      state.userLoggedIn = action.payload;
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setEmail, setUserId } = userSlice.actions;
+export const { setEmail, setUserId, userIsLoggedIn } = userSlice.actions;
+
 
 export default userSlice.reducer;

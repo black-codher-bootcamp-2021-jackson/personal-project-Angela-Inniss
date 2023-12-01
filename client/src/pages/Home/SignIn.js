@@ -1,47 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setEmail, setUserId } from "../../features/user/userSlice";
+import {
+  setEmail,
+  setUserId,
+  userIsLoggedIn
+} from "../../features/user/userSlice";
 
 import { signInUser } from "../../services/userServices";
 import braidsImage from "../../images/girl3.jpg";
+import { useNavigate } from 'react-router-dom';
 
 import "./signUp.css";
 
-const SignIn = () => {
+const SignIn = (props) => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
-  // const [email, setEmail] = useState("");
 
   // selectors
   const userEmail = useSelector((state) => state.user.email);
-  const userId = useSelector((state) => state.user.userId);
 
   const [password, setPassword] = useState("");
 
- // store actions
+  const isUserSignedIn = useSelector((state) => state.user.userLoggedIn);
+  // const isUserSignedIn = true;
+  console.log("isUserSignedIn", isUserSignedIn);
+
+  // store actions
   const onSetUserEmail = (value) => {
     dispatch(setEmail(value));
   };
 
-  const getUserId = (value) => {
-    dispatch(setUserId(value))
-  }
-
+  const setUserIdToStore = (value) => {
+    dispatch(setUserId(value));
+  };
+  const setUserIsLoggedIn = (value) => {
+    dispatch(userIsLoggedIn(value));
+  };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
+
     signInUser({
       email: userEmail,
       password: password,
     }).then((response) => {
       // store the user in localStorage
       localStorage.setItem("userToken", response.token);
-      console.log(response.payload);
+      // console.log(response.payload);
       // get user id here and store in some state somewhere globally and then use it to pass into the getuserid state
       // set the user id to redux store userId
-      getUserId(response.payload.user.id); // setting userId in redux store
+      setUserIdToStore(response.payload.user.id); // setting userId in redux store
+      setUserIsLoggedIn(true);
     });
   };
+
+   // added useEffect around this so that it only navigates to the home if user is signed in 
+  // AFTER the Sign In page has rendered to the screen,
+  // this fixed warning error about "cannot update component while rendering another component.
+  useEffect(() => {
+    if (isUserSignedIn) {
+      navigate("/");
+    }
+  },[isUserSignedIn]); 
+ 
+ 
+
   return (
     <div className="page-container">
       <div className="container-left">
@@ -52,7 +75,7 @@ const SignIn = () => {
         <h2 className="heading-signup"> Sign into Salon Search</h2>
 
         <h3 className="subheading-signup input-family">
-          <input type="text" id="" value="" placeholder="Google sign in" />
+          <input type="text" id="" placeholder="Google sign in" />
         </h3>
         <p className="divider"></p>
         <form onSubmit={handleOnSubmit}>
